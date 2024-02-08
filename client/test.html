@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<div id="paypal-button"></div>
+
+<script>
+  paypal.Button.render({
+    env: 'sandbox', // Or 'production'
+    // Set up the payment:
+    // 1. Add a payment callback
+    payment: function(data, actions) {
+      // 2. Make a request to your server
+      return actions.request.post('/cars/create-payment/')
+        .then(function(res) {
+          // 3. Return res.id from the response
+          return res.id;
+        });
+    },
+    // Execute the payment:
+    // 1. Add an onAuthorize callback
+    onAuthorize: function(data, actions) {
+      // 2. Make a request to your server
+      return actions.request.post('/cars/execute-payment/', {
+        paymentID: data.paymentID,
+        payerID:   data.payerID
+      })
+        .then(function(res) {
+          // 3. Show the buyer a confirmation message.
+        });
+    }
+  }, '#paypal-button');
+</script>
+    </body>
+</html>
