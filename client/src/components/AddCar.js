@@ -20,6 +20,7 @@ export default class AddCar extends Component
             colour:"",
             year:"",
             price:"",
+            size:"",
             selectedFiles:null,
             redirectToDisplayAllCars:localStorage.accessLevel < ACCESS_LEVEL_ADMIN,
             wasSubmittedAtLeastOnce:false
@@ -54,6 +55,10 @@ export default class AddCar extends Component
         formData.append("colour", this.state.colour)
         formData.append("year", this.state.year)
         formData.append("price", this.state.price)
+        formData.append("size", this.state.size)
+        formData.append("gender", this.state.gender)
+        formData.append("fabric", this.state.fabric)
+        formData.append("description", this.state.description)
         
         if(this.state.selectedFiles)
         {
@@ -109,7 +114,27 @@ export default class AddCar extends Component
                         <Form.Label>Price</Form.Label>
                         <Form.Control type="text" name="price" value={this.state.price} onChange={this.handleChange} />
                     </Form.Group> 
-                    
+
+                    <Form.Group controlId="size">
+                        <Form.Label>Size</Form.Label>
+                        <Form.Control type="text" name="size" value={this.state.size} onChange={this.handleChange} />
+                    </Form.Group> 
+
+                    <Form.Group controlId="gender">
+                        <Form.Label>Gender</Form.Label>
+                        <Form.Control type="text" name="gender" value={this.state.gender} onChange={this.handleChange} />
+                    </Form.Group> 
+
+                    <Form.Group controlId="fabric">
+                        <Form.Label>Fabric</Form.Label>
+                        <Form.Control type="text" name="fabric" value={this.state.fabric} onChange={this.handleChange} />
+                    </Form.Group> 
+
+                    <Form.Group controlId="description">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="text" name="description" value={this.state.description} onChange={this.handleChange} />
+                    </Form.Group> 
+
                     <Form.Group controlId="photos">
                     <Form.Label>Photos</Form.Label>
                     <Form.Control          

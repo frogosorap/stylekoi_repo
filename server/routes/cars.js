@@ -48,6 +48,10 @@ const createNewCarDocument = (req, res, next) =>
     carDetails.colour = req.body.colour
     carDetails.year = req.body.year
     carDetails.price = req.body.price
+    carDetails.size = req.body.size
+    carDetails.gender = req.body.gender
+    carDetails.fabric= req.body.fabric
+    carDetails.description = req.body.description
 
     // add the car's photos to the carDetails JSON object
     carDetails.photos = []

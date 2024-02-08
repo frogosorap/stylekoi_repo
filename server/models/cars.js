@@ -12,6 +12,10 @@ let carsSchema = new mongoose.Schema(
         colour: {type: String, required:true},
         year: {type: Number, required:true},
         price: {type: Number, required:true},
+        size: {type: String, required:true},
+        gender: {type: String, required:true},
+        fabric: {type: String, required:true},
+        description: {type: String, required:true},
         photos:[carPhotosSchema],
         sold: {type: Boolean, default:false}
     },

@@ -18,6 +18,10 @@ export default class EditCar extends Component
             colour: ``,
             year: ``,
             price: ``,
+            size:``,
+            gender:``,
+            fabric:``,
+            description:``,
             redirectToDisplayAllCars:localStorage.accessLevel < ACCESS_LEVEL_NORMAL_USER,
             wasSubmittedAtLeastOnce:false
         }
@@ -34,7 +38,11 @@ export default class EditCar extends Component
                 model: res.data.model,
                 colour: res.data.colour,
                 year: res.data.year,
-                price: res.data.price
+                price: res.data.price,
+                size: res.data.size,
+                gender: res.data.gender,
+                fabric: res.data.fabric,
+                description: res.data.description,
             })            
         })
         .catch(err => 
@@ -58,7 +66,11 @@ export default class EditCar extends Component
             model: this.state.model,
             colour: this.state.colour,
             year: this.state.year,
-            price: this.state.price
+            price: this.state.price,
+            size: this.state.size,
+            gender: this.state.gender,
+            fabric: this.state.fabric,
+            description: this.state.description,
         }
 
         axios.put(`${SERVER_HOST}/cars/${this.props.match.params.id}`, carObject, {headers:{"authorization":localStorage.token}})
@@ -108,7 +120,27 @@ export default class EditCar extends Component
                         <Form.Label>Price</Form.Label>
                         <Form.Control type="text" name="price" value={this.state.price} onChange={this.handleChange} />
                     </Form.Group>
-  
+
+                    <Form.Group controlId="size">
+                        <Form.Label>Size</Form.Label>
+                        <Form.Control type="text" name="size" value={this.state.size} onChange={this.handleChange} />
+                    </Form.Group>
+
+                    <Form.Group controlId="gender">
+                        <Form.Label>Gender</Form.Label>
+                        <Form.Control type="text" name="gender" value={this.state.gender} onChange={this.handleChange} />
+                    </Form.Group>
+
+                    <Form.Group controlId="fabric">
+                        <Form.Label>Fabric</Form.Label>
+                        <Form.Control type="text" name="fabric" value={this.state.fabric} onChange={this.handleChange} />
+                    </Form.Group>
+
+                    <Form.Group controlId="description">
+                        <Form.Label>Description</Form.Label>
+                        <Form.Control type="text" name="description" value={this.state.description} onChange={this.handleChange} />
+                    </Form.Group>
+
                     <LinkInClass value="Update" className="green-button" onClick={this.handleSubmit}/>  
     
                     <Link className="red-button" to={"/DisplayAllCars"}>Cancel</Link>

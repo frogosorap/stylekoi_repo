@@ -48,6 +48,10 @@ export default class CarTableRow extends Component
                 <td>{this.props.car.colour}</td>
                 <td>{this.props.car.year}</td>
                 <td>{this.props.car.price}</td>
+                <td>{this.props.car.size}</td>
+                <td>{this.props.car.gender}</td>
+                <td>{this.props.car.fabric}</td>
+                <td>{this.props.car.description}</td>
                 <td className="carPhotos">
                     {this.props.car.photos.map(photo => <img key={photo._id} id={photo._id} alt=""/>)}
                 </td>           
