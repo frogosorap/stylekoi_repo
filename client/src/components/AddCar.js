@@ -16,7 +16,7 @@ export default class AddCar extends Component
         super(props)
 
         this.state = {
-            model:"",
+            name:"",
             colour:"",
             year:"",
             price:"",
@@ -51,7 +51,7 @@ export default class AddCar extends Component
         e.preventDefault()
 
         let formData = new FormData()                  
-        formData.append("model", this.state.model)
+        formData.append("name", this.state.name)
         formData.append("colour", this.state.colour)
         formData.append("year", this.state.year)
         formData.append("price", this.state.price)
@@ -95,9 +95,9 @@ export default class AddCar extends Component
                 {errorMessage}
                 
                 <Form>
-                    <Form.Group controlId="model">
-                        <Form.Label>Model</Form.Label>
-                        <Form.Control ref = {(input) => { this.inputToFocus = input }} type="text" name="model" value={this.state.model} onChange={this.handleChange} />
+                    <Form.Group controlId="name">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control ref = {(input) => { this.inputToFocus = input }} type="text" name="name" value={this.state.name} onChange={this.handleChange} />
                     </Form.Group>
     
                     <Form.Group controlId="colour">

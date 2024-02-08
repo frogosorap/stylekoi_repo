@@ -10,7 +10,7 @@ export default class CarTable extends Component
             <table>
                 <thead>
                     <tr>
-                        <th>Model</th>
+                        <th>Name</th>
                         <th>Colour</th>
                         <th>Year</th>
                         <th>Price</th>

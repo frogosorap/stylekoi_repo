@@ -14,7 +14,7 @@ export default class EditCar extends Component
         super(props)
 
         this.state = {
-            model: ``,
+            name: ``,
             colour: ``,
             year: ``,
             price: ``,
@@ -35,7 +35,7 @@ export default class EditCar extends Component
         .then(res => 
         {     
             this.setState({
-                model: res.data.model,
+                name: res.data.name,
                 colour: res.data.colour,
                 year: res.data.year,
                 price: res.data.price,
@@ -63,7 +63,7 @@ export default class EditCar extends Component
         e.preventDefault()
 
         const carObject = {
-            model: this.state.model,
+            name: this.state.name,
             colour: this.state.colour,
             year: this.state.year,
             price: this.state.price,
@@ -101,9 +101,9 @@ export default class EditCar extends Component
                 {errorMessage}
                 
                 <Form>
-                    <Form.Group controlId="model">
-                        <Form.Label>Model</Form.Label>
-                        <Form.Control ref = {(input) => { this.inputToFocus = input }} type="text" name="model" value={this.state.model} onChange={this.handleChange} />
+                    <Form.Group controlId="name">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control ref = {(input) => { this.inputToFocus = input }} type="text" name="name" value={this.state.name} onChange={this.handleChange} />
                     </Form.Group>
 
                     <Form.Group controlId="colour">

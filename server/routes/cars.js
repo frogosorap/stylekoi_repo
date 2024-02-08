@@ -44,7 +44,7 @@ const createNewCarDocument = (req, res, next) =>
     // Use the new car details to create a new car document                
     let carDetails = new Object()
                 
-    carDetails.model = req.body.model
+    carDetails.name = req.body.name
     carDetails.colour = req.body.colour
     carDetails.year = req.body.year
     carDetails.price = req.body.price

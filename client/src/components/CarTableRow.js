@@ -44,7 +44,7 @@ export default class CarTableRow extends Component
         
         return (
             <tr>
-                <td>{this.props.car.model}</td>
+                <td>{this.props.car.name}</td>
                 <td>{this.props.car.colour}</td>
                 <td>{this.props.car.year}</td>
                 <td>{this.props.car.price}</td>

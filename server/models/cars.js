@@ -8,7 +8,7 @@ let carPhotosSchema = new mongoose.Schema(
 
 let carsSchema = new mongoose.Schema(
     {
-        model: {type: String, required:true},
+        name: {type: String, required:true},
         colour: {type: String, required:true},
         year: {type: Number, required:true},
         price: {type: Number, required:true},
