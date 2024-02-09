@@ -41,8 +41,15 @@ export default class CarTableRow extends Component {
 
     return (
       <p className="itemsBox">
+        <p className="carPhotos">
+          {" "}
+          {this.props.car.photos.map((photo) => (
+            <img key={photo._id} id={photo._id} alt="" />
+          ))}
+        </p>
         <h3>{this.props.car.name}</h3>
-        <b>
+        <i>€{this.props.car.price}</i>
+        {/* <b>
           {this.props.car.colour} || {this.props.car.year}
         </b>
         <p>
@@ -50,14 +57,8 @@ export default class CarTableRow extends Component {
         </p>
         <p>
           {this.props.car.gender} || {this.props.car.fabric}
-        </p>
-        <p>{this.props.car.description}</p>
-        <p className="carPhotos">
-          {" "}
-          {this.props.car.photos.map((photo) => (
-            <img key={photo._id} id={photo._id} alt="" />
-          ))}
-        </p>
+        </p> */}
+        {/* <p>{this.props.car.description}</p> */}
         <p>
           {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
             <Link

@@ -150,14 +150,14 @@ color:pink;
 }
 /* end of logged in user's profile photo */
 
-
+/* 
 .carPhotos
 {
     overflow-x: auto;
     white-space: nowrap;
     min-width:18em;
     max-width:18em;
-}
+} */
 
 .carPhotos img
 {
