@@ -6,6 +6,7 @@ import "./css/App.css"
 
 
 import "./css/raph.css"
+import "./css/elga.css"
 
 
 import Register from "./components/Register"
