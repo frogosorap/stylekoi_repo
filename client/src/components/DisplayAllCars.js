@@ -56,6 +56,10 @@ export default class DisplayAllCars extends Component
                 }
                 
                 <div className="table-container">
+                    <h2>Best Sellers</h2>
+                    <CarTable cars={this.state.cars} /> 
+                    <br/><br/><br/>
+                    <h2>Recently Accessed</h2>
                     <CarTable cars={this.state.cars} /> 
                         
                     {
