@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Modal from "../components/Modal"
 
 import axios from "axios";
 
@@ -12,6 +13,19 @@ import {
 import BuyCar from "./BuyCar";
 
 export default class CarTableRow extends Component {
+
+  state = {
+    showModal: false,
+    selectedPhotoId: null,
+  };
+
+  toggleModal = (photoId) => {
+    this.setState((prevState) => ({
+      showModal: !prevState.showModal,
+      selectedPhotoId: photoId,
+    }));
+  };
+  
   componentDidMount() {
     this.props.car.photos.map((photo) => {
       return axios
@@ -28,6 +42,10 @@ export default class CarTableRow extends Component {
   }
 
   render() {
+
+    const { showModal, selectedPhotoId } = this.state;
+    const { car } = this.props;
+
     let soldOrForSale = null;
     if (localStorage.accessLevel <= ACCESS_LEVEL_GUEST) {
       if (this.props.car.sold !== true) {
@@ -44,7 +62,7 @@ export default class CarTableRow extends Component {
         <p className="carPhotos">
           {" "}
           {this.props.car.photos.map((photo) => (
-            <img key={photo._id} id={photo._id} alt="" />
+            <img key={photo._id} id={photo._id} alt="" onClick={() => this.toggleModal(photo._id)}/>
           ))}
         </p>
         <h3>{this.props.car.name}</h3>
@@ -116,6 +134,7 @@ export default class CarTableRow extends Component {
             {soldOrForSale}
           </td>
         </tr> */}
+        <Modal isOpen={showModal} onClose={this.toggleModal} car={car} photoId={selectedPhotoId} />
       </p>
     );
   }

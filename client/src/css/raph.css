@@ -1,8 +1,40 @@
+/* Basic modal styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+  }
+  
+  .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .close {
+    position: absolute; /* Keep this for absolute positioning */
+    top: 10px; /* Adjust this value to move vertically */
+    right: 10px; /* Adjust this value to move horizontally */
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+
 footer{
     display: flex;
     flex-wrap: wrap;
     margin-top: auto;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6),
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9),
                        rgba(0, 0, 0, 0.9)), url("https://gippingvalleykoi.co.uk/wp-content/themes/gvk/images/banner.jpg");
     background-repeat: no-repeat;
     background-size: cover;
