@@ -1,0 +1,9 @@
+.banner {
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    padding: 2px;
+    position: fixed;
+}
