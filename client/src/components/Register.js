@@ -51,7 +51,7 @@ export default class Register extends Component
         {     
             localStorage.name = res.data.name
             localStorage.accessLevel = res.data.accessLevel
-            localStorage.profilePhoto = res.data.profilePhoto                    
+            localStorage.profilePhoto = res.data.profilePhoto
             localStorage.token = res.data.token
                     
             this.setState({isRegistered:true})               

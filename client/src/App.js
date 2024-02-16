@@ -38,7 +38,20 @@ export default class App extends Component {
                     <p>Free shipping on orders over €30</p>
                 </div>
                 <div class="navbar">
-                    <Link to="/DisplayAllCars">All Shirts</Link>
+                    <div class="leftnav">
+                        <a href="#index.html">StyleKoi</a>
+                    </div>
+
+                    <div class="midnav">
+                        <Link to="/DisplayAllCars">All Shirts</Link>
+                        <a href="#index.html">TEST</a>
+                        <a href="#index.html">TEST</a>
+                    </div>
+
+                    <div class="rightnav">
+                        <a href="#index.html">temp</a>
+                        <a href="#index.html">temp</a>
+                    </div>
                 </div>
 
                 <Switch>
