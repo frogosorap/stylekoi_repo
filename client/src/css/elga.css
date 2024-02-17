@@ -10,7 +10,7 @@ h3{
     padding: 0;
 }
 
-.itemsRow > p{
+.itemsRow > div{
     border: #000 1px solid;
     border-radius: 12px;
     margin: 10px;
@@ -22,7 +22,7 @@ h3{
 {
     overflow-x: auto;
     white-space: nowrap;
-    min-width:28em;
-    min-height:28em;
+    min-width:17.5em;
+    min-height:17.5em;
     border-radius: 10px;
 }

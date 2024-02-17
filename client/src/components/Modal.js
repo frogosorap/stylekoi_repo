@@ -2,10 +2,12 @@ import React, { Component } from "react";
 
 class Modal extends Component {
     render() {
-        const { isOpen, onClose, car, photoId, isImageClicked } = this.props;
+        const { isOpen, onClose, car, photoId, carPhotos, isImageClicked } = this.props;
       
         if (!isOpen) return null;
       
+        const selectedPhoto = carPhotos.find((photo) => photo._id === photoId);
+
         return (
           <div className="modal">
             <div className="modal-content">
@@ -23,7 +25,8 @@ class Modal extends Component {
                 </div>
 
                 <div className="modal-image">
-                  
+                {selectedPhoto && <img src={`data:;base64,${selectedPhoto.image}`} alt="" />}
+
                 </div>
 
               </div>

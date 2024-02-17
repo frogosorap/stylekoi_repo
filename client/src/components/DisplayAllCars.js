@@ -4,6 +4,7 @@ import {Link} from "react-router-dom"
 import axios from "axios"
 
 import CarTable from "./CarTable"
+import ShirtGrid from "./ShirtGrid"
 import Logout from "./Logout"
 
 import {ACCESS_LEVEL_GUEST, ACCESS_LEVEL_ADMIN, SERVER_HOST} from "../config/global_constants"
@@ -56,6 +57,9 @@ export default class DisplayAllCars extends Component
                 }
                 
                 <div className="table-container">
+                    <h2>Our Products</h2>
+                    <ShirtGrid cars={this.state.cars} /> 
+                    <br/><br/><br/>
                     <h2>Best Sellers</h2>
                     <CarTable cars={this.state.cars} /> 
                     <br/><br/><br/>
