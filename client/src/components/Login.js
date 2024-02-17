@@ -55,7 +55,7 @@ export default class Login extends Component
         }
         
         return (
-            <form className="form-container" noValidate = {true} id = "loginOrRegistrationForm">
+            <form className="forms" noValidate = {true} id = "loginOrRegistrationForm">
                 <h2>Login</h2>
                 
                 {this.state.isLoggedIn ? <Redirect to="/DisplayAllCars"/> : null} 

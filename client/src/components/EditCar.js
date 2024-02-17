@@ -94,7 +94,7 @@ export default class EditCar extends Component
         } 
         
         return (
-            <div className="form-container">
+            <div className="forms">
     
                 {this.state.redirectToDisplayAllCars ? <Redirect to="/DisplayAllCars"/> : null}  
                     
