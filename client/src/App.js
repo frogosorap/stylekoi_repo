@@ -19,6 +19,9 @@ import LoggedInRoute from "./components/LoggedInRoute"
 import BuyCar from "./components/BuyCar"
 import PayPalMessage from "./components/PayPalMessage"
 
+import MenShirts from "./components/MenShirts"
+import WomenShirts from "./components/WomenShirts"
+
 import { ACCESS_LEVEL_GUEST } from "./config/global_constants"
 
 
@@ -44,13 +47,14 @@ export default class App extends Component {
 
                     <div class="midnav">
                         <Link to="/DisplayAllCars">All Shirts</Link>
-                        <a href="#index.html">TEST</a>
+                        <Link to="/MenShirts">Men's Shirts</Link>
+                        <Link to="/WomenShirts">Women's Shirts</Link>
                         <a href="#index.html">TEST</a>
                     </div>
 
                     <div class="rightnav">
-                        <a href="#index.html">temp</a>
-                        <a href="#index.html">temp</a>
+                        <Link to="/Login">Login</Link>
+                        <a href="#index.html">TEST</a>
                     </div>
                 </div>
 
@@ -66,6 +70,8 @@ export default class App extends Component {
                     <LoggedInRoute exact path="/EditCar/:id" component={EditCar} />
                     <LoggedInRoute exact path="/DeleteCar/:id" component={DeleteCar} />
                     <Route exact path="/DisplayAllCars" component={DisplayAllCars} />
+                    <Route exact path="/MenShirts" component={MenShirts} />
+                    <Route exact path="/WomenShirts" component={WomenShirts} />
                     <Route path="*" component={DisplayAllCars} />
                 </Switch>
 
