@@ -1,3 +1,20 @@
+.reg-button {
+  background-color: #3545dc;
+  padding: 7px 10px;
+  font-size: 0.875rem;
+  line-height: normal;
+  border-radius: 0.2rem;
+  color: #fff;
+  border-color: #3545dc;
+  margin-right: 10px;
+  position: relative;
+  /*top: 1px;  */
+  text-decoration: none;
+  cursor:pointer;
+}
+
+
+
 /* Form container */
 .forms {
     max-width: 400px;

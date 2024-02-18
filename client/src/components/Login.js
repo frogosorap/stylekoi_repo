@@ -5,6 +5,7 @@ import axios from "axios"
 import LinkInClass from "../components/LinkInClass"
 import {SERVER_HOST} from "../config/global_constants"
 
+import Register from "../components/Register"
 
 export default class Login extends Component
 {
@@ -55,34 +56,43 @@ export default class Login extends Component
         }
         
         return (
-            <form className="forms" noValidate = {true} id = "loginOrRegistrationForm">
-                <h2>Login</h2>
-                
-                {this.state.isLoggedIn ? <Redirect to="/DisplayAllCars"/> : null} 
-                
-                {errorMessage}
-                
-                <input 
-                    type = "email" 
-                    name = "email" 
-                    placeholder = "Email"
-                    autoComplete="email"
-                    value={this.state.email} 
-                    onChange={this.handleChange}
-                /><br/>
+            <div>
+                <form className="forms" noValidate = {true} id = "loginOrRegistrationForm">
+                    <h2>Login</h2>
                     
-                <input 
-                    type = "password" 
-                    name = "password" 
-                    placeholder = "Password"
-                    autoComplete="password"
-                    value={this.state.password} 
-                    onChange={this.handleChange}
-                /><br/><br/>
+                    {this.state.isLoggedIn ? <Redirect to="/DisplayAllCars"/> : null} 
+                    
+                    {errorMessage}
+                    
+                    <input 
+                        type = "email" 
+                        name = "email" 
+                        placeholder = "Email"
+                        autoComplete="email"
+                        value={this.state.email} 
+                        onChange={this.handleChange}
+                    /><br/>
+                        
+                    <input 
+                        type = "password" 
+                        name = "password" 
+                        placeholder = "Password"
+                        autoComplete="password"
+                        value={this.state.password} 
+                        onChange={this.handleChange}
+                    /><br/><br/>
+                    
+                    <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/> 
+                    <Link className="red-button" to={"/DisplayAllCars"}>Cancel</Link>    
+                    <br/><br/>                                 
+                    <div>
+                        <h2>New User?</h2>
+                        <Link className="reg-button" to={"/Register"}>Register</Link>     
+                    </div>
+                </form>
                 
-                <LinkInClass value="Login" className="green-button" onClick={this.handleSubmit}/> 
-                <Link className="red-button" to={"/DisplayAllCars"}>Cancel</Link>                                      
-            </form>
+                <br/>
+            </div>
         )
     }
 }
