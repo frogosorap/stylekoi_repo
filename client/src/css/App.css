@@ -1,16 +1,14 @@
 .container {
-  padding-top: 10px;
+    padding-top: 10px;
 }
 
 .form-container,
-.table-container 
-{
-  /* max-width: 700px; */
-  margin: 0 10px;
+.table-container {
+    /* max-width: 700px; */
+    margin: 0 10px;
 }
 
-.form-container
-{
+.form-container {
     /*border:thin solid #aaaaaa;*/
     /* padding: 20px; */
     margin-left: auto;
@@ -25,75 +23,66 @@
 }
 
 
-.logout
-{
-    margin-bottom:30px;
+.logout {
+    margin-bottom: 30px;
 }
 
 /* link buttons */
 .green-button,
 .red-button,
-.blue-button
-{
-  padding: 7px 10px;
-  font-size: 0.875rem;
-  line-height: normal;
-  border-radius: 0.2rem;
-  color: #fff;
-  background-color: #28a745;
-  border-color: #28a745;
-  margin-right: 10px;
-  position: relative;
-  /*top: 1px;  */
-  text-decoration: none;
-  cursor:pointer;
+.blue-button {
+    padding: 7px 10px;
+    font-size: 0.875rem;
+    line-height: normal;
+    border-radius: 0.2rem;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    margin-right: 10px;
+    position: relative;
+    /*top: 1px;  */
+    text-decoration: none;
+    cursor: pointer;
 }
 
-.green-button
-{
+.green-button {
     background-color: #28a745;
 }
 
-.red-button
-{
+.red-button {
     background-color: #dc3545;
 }
 
-.blue-button
-{
+.blue-button {
     background-color: #3545dc;
 }
 
 .green-button:hover,
 .red-button:hover,
-.blue-button:hover
-{
+.blue-button:hover {
     text-decoration: none;
-    color:#fff;
+    color: #fff;
 }
 
-.green-button:hover
-{
-    background-color: #107020; 
+.green-button:hover {
+    background-color: #107020;
 }
 
-.red-button:hover
-{
-  background-color: #a01020; 
+.red-button:hover {
+    background-color: #a01020;
 }
 
-.blue-button:hover
-{
-  background-color: #1020a0; 
+.blue-button:hover {
+    background-color: #1020a0;
 }
+
 /* end of link buttons */
 
 
 
 
-input [type="button"] 
-{
-color:pink;
+input [type="button"] {
+    color: pink;
 }
 
 
@@ -102,57 +91,52 @@ color:pink;
 
 
 /* table of cars */
-.table-container table
-{
-    width:100%;
-    border-collapse:collapse;
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-.table-container thead
-{
+.table-container thead {
     background-color: #aaa;
-    color:#fff;
+    color: #fff;
     text-align: left;
     text-transform: capitalize;
 }
 
-.table-container tbody tr
-{
-    height:6em;
+.table-container tbody tr {
+    height: 6em;
 }
 
 .table-container thead th,
-.table-container tbody td
-{
-    padding:5px;
+.table-container tbody td {
+    padding: 5px;
 }
-.table-container tbody tr:nth-child(odd) 
-{
+
+.table-container tbody tr:nth-child(odd) {
     background-color: #eee;
 }
 
-.table-container tbody tr:nth-child(even) 
-{
+.table-container tbody tr:nth-child(even) {
     background-color: #ffa;
 }
 
-.add-new-car
-{
-    margin-top:1em;
+.add-new-car {
+    margin-top: 1em;
 }
+
 /*end of table of cars */
 
 
 /* logged in user's profile photo */
-#profilePhoto
-{
+#profilePhoto {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: thin solid #aaa;
-    float:right;
-    background-size:contain;
+    float: right;
+    background-size: contain;
 }
+
 /* end of logged in user's profile photo */
 
 /* 
@@ -164,34 +148,30 @@ color:pink;
     max-width:18em;
 } */
 
-.carPhotos img
-{
-    width:5em;
-    height:5em;
-    padding:0em;
-    margin:0em;
-    margin-right:0.5em;
-    border:thin solid #ccc;
+.carPhotos img {
+    width: 5em;
+    height: 5em;
+    padding: 0em;
+    margin: 0em;
+    margin-right: 0.5em;
+    border: thin solid #ccc;
 }
 
 
-.payPalMessage
-{
-    width:650px;    
-    margin-top:20px;
+.payPalMessage {
+    width: 650px;
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    border:thin solid #666666;
+    border: thin solid #666666;
     border-radius: 50px;
-    padding:50px;    
+    padding: 50px;
 }
 
-#payPalPaymentIDButton
-{
-    margin-top:50px;
+#payPalPaymentIDButton {
+    margin-top: 50px;
 }
 
-#payPalPaymentID
-{
+#payPalPaymentID {
     font-weight: bold;
 }
