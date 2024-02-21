@@ -44,7 +44,12 @@ export default class App extends Component {
             </span>
           </p>
         </div>
-        <div class="parallax"></div>
+        <div class="parallax">
+            <div className="parallax_header">
+               <h1> Sample Text To Make Site</h1>
+               Look Cool... And something smaller here too...
+            </div>
+        </div>
         <div class="navbar">
           <div class="leftnav">
             <a href="#index.html">StyleKoi</a>
