@@ -13,21 +13,6 @@ import {
 import BuyCar from "./BuyCar";
 
 export default class CarTableRow extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        showModal: false,
-        selectedPhotoId: null,
-      };
-        this.toggleModal = this.toggleModal.bind(this);
-    }
-
-  toggleModal(photoId) {
-    this.setState((prevState) => ({
-      showModal: !prevState.showModal,
-      selectedPhotoId: photoId,
-    }));
-  }
   
   componentDidMount() {
     this.props.car.photos.forEach((photo) => {
@@ -44,8 +29,6 @@ export default class CarTableRow extends Component {
 
   render() {
 
-    const { showModal, selectedPhotoId } = this.state;
-    const { car } = this.props;
 
     let soldOrForSale = null;
     if (localStorage.accessLevel <= ACCESS_LEVEL_GUEST) {
@@ -65,7 +48,7 @@ export default class CarTableRow extends Component {
           <div className="carPhotos">
             {" "}
             {this.props.car.photos.map((photo) => (
-              <img key={photo._id} id={photo._id}  alt="" onClick={() => this.toggleModal(photo._id)}/>
+              <img key={photo._id} id={photo._id}  alt="" />
             ))}
           </div>
           <h3>{this.props.car.name}</h3>
@@ -137,7 +120,6 @@ export default class CarTableRow extends Component {
               {soldOrForSale}
             </td>
           </tr> */}
-          <Modal isOpen={showModal} onClose={this.toggleModal} car={car} photoId={selectedPhotoId} carPhotos={car.photos} />
         </div>
       </div>
     );

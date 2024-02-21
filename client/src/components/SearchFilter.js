@@ -27,7 +27,7 @@ export default class SearchFilter extends Component {
 
       <div>
               {/*htmlFor*/}
-        <label className="filterInput">Filter:</label>
+        <label className="filterInput">Search:</label>
         <input
           type="text"
           id="filterInput"
