@@ -6,18 +6,19 @@
     width: 100%;
     height: auto;
     position: sticky;
-    top: 0vh; 
+    top: 0vh;
     z-index: 1;
 }
 
-.banner p {
+/* .banner p {
     margin: 0;
     padding: 5px;
-}
+} */
 
 .navbar {
-    background-color: white;
-    color: black;
+    /* background-color: white; */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.26), transparent);
+    color: #E53D1C;
     text-align: center;
     margin: 0;
     width: 100%;
@@ -31,7 +32,7 @@
 }
 
 .navbar a {
-    color: black;
+    color: #E53D1C;
     text-decoration: none;
     margin-left: 10px;
     margin-right: 10px;

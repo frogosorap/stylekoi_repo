@@ -58,7 +58,7 @@ export default class DisplayAllCars extends Component
 
                 
                 <div className="table-container">
-                    <h2>Our Products</h2>
+                    <h2 style={{ textAlign: "center" }}>COLLECTION</h2>
                     <ShirtGrid cars={this.state.cars} /> 
                     <br/><br/><br/>
                     {
@@ -68,7 +68,7 @@ export default class DisplayAllCars extends Component
                           </div>
                         : null
                     }
-                    <h2>Best Sellers</h2>
+                    {/* <h2>Collection</h2> */}
                     <CarTable cars={this.state.cars} /> 
                     <br/><br/><br/>
                     {/* <h2>Recently Accessed</h2>

@@ -45,7 +45,7 @@ export default class ShirtGrid extends Component {
 
       <div>
         <SearchFilter onFilterChange={this.handleFilterChange} />
-        <div className="itemsGrid">
+        <div className="itemsGrid women_section">
           {/* Renders the filtered shirts */}
           {
 

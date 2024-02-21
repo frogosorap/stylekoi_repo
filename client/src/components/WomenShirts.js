@@ -57,13 +57,13 @@ export default class MenShirts extends Component
                 }
                 
                 <div className="table-container">
-                    <h2>Our Women's Selection</h2>
+                    <h2>WOMEN'S COLLECTION</h2>
                     <ShirtGrid cars={this.state.cars} /> 
                         
                     {
                         localStorage.accessLevel >= ACCESS_LEVEL_ADMIN 
                         ? <div className="add-new-car">
-                            <Link className="blue-button" to={"/AddCar"}>Add New Car</Link>
+                            <Link className="blue-button" to={"/AddCar"}>Add New Item</Link>
                           </div>
                         : null
                     }
