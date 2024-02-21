@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Modal from "../components/Modal"
+import Modal from "../components/Modal";
 
 import axios from "axios";
 
@@ -13,13 +13,14 @@ import {
 import BuyCar from "./BuyCar";
 
 export default class CarTableRow extends Component {
-  
   componentDidMount() {
     this.props.car.photos.forEach((photo) => {
       axios
         .get(`${SERVER_HOST}/cars/photo/${photo.filename}`)
         .then((res) => {
-          document.getElementById(photo._id).src = `data:;base64,${res.data.image}`;
+          document.getElementById(
+            photo._id
+          ).src = `data:;base64,${res.data.image}`;
         })
         .catch((err) => {
           // Handle error
@@ -28,8 +29,6 @@ export default class CarTableRow extends Component {
   }
 
   render() {
-
-
     let soldOrForSale = null;
     if (localStorage.accessLevel <= ACCESS_LEVEL_GUEST) {
       if (this.props.car.sold !== true) {
@@ -42,17 +41,18 @@ export default class CarTableRow extends Component {
     }
 
     return (
-
       <div>
         <div className="itemsBox">
           <div className="carPhotos">
             {" "}
             {this.props.car.photos.map((photo) => (
-              <img key={photo._id} id={photo._id}  alt="" />
+              <img key={photo._id} id={photo._id} alt="" />
             ))}
           </div>
-          <h3>{this.props.car.name}</h3>
-          <i>€{this.props.car.price}</i>
+          <div className="details">
+            <h3>{this.props.car.name}</h3>
+            <i>€{this.props.car.price}</i>
+          </div>
           <p>
             {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
               <Link
