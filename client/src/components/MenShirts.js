@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 import axios from "axios"
 
-import CarTable from "./CarTable"
+// import CarTable from "./CarTable"
 import ShirtGrid from "./ShirtGrid"
 import Logout from "./Logout"
 

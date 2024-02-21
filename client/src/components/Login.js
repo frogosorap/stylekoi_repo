@@ -5,7 +5,7 @@ import axios from "axios"
 import LinkInClass from "../components/LinkInClass"
 import {SERVER_HOST} from "../config/global_constants"
 
-import Register from "../components/Register"
+// import Register from "../components/Register"
 
 export default class Login extends Component
 {

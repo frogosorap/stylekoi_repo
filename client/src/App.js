@@ -35,8 +35,8 @@ export default class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div class="banner">
-          <p class="marquee">
+        <div className="banner">
+          <p className="marquee">
             <span>
               Free shipping on orders over €30 &emsp;&emsp;||&emsp;&emsp; Sale: 50% off
               - Only Today!! &emsp;&emsp;||&emsp;&emsp; Buy over EUR 39.99, get 25%
@@ -44,25 +44,25 @@ export default class App extends Component {
             </span>
           </p>
         </div>
-        <div class="parallax">
+        <div className="parallax">
             <div className="parallax_header">
                <h1> Sample Text To Make Site</h1>
                Look Cool... And something smaller here too...
             </div>
         </div>
-        <div class="navbar">
-          <div class="leftnav">
+        <div className="navbar">
+          <div className="leftnav">
             <a href="#index.html">StyleKoi</a>
           </div>
 
-          <div class="midnav">
+          <div className="midnav">
             <Link to="/DisplayAllCars">ALL SHIRTS</Link>
             <Link to="/MenShirts">MEN'S SHIRTS</Link>
             <Link to="/WomenShirts">WOMENS SHIRTS</Link>
             <a href="#index.html">TEST</a>
           </div>
 
-          <div class="rightnav">
+          <div className="rightnav">
             <Link to="/Login">LOGIN</Link>
             <a href="#index.html">TEST</a>
           </div>

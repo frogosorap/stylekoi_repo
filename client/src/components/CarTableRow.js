@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Modal from "../components/Modal";
+// import Modal from "../components/Modal";
 
 import axios from "axios";
 
