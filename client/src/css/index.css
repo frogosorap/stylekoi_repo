@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
 body {
   margin: 0;
-  font-family: "Quantico", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   font-style: normal;
 
@@ -14,9 +14,4 @@ body {
 body,
 html {
   height: 100%;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
 }
