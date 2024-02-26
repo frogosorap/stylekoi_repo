@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import { SERVER_HOST } from "../config/global_constants";
+
+import {
+  ACCESS_LEVEL_GUEST,
+  SERVER_HOST,
+} from "../config/global_constants";
+
+import BuyCar from "./BuyCar";
 
 class CarDetailsPage extends Component {
   constructor(props) {
@@ -29,8 +35,19 @@ class CarDetailsPage extends Component {
   }
 
   render() {
+    
+    let soldOrForSale = null;
+    if (localStorage.accessLevel <= ACCESS_LEVEL_GUEST) {
+      if (this.props.location.state.car.sold !== true) {
+        soldOrForSale = (
+          <BuyCar carID={this.props.location.state.car._id} price={this.props.location.state.car.price} />
+        );
+      } else {
+        soldOrForSale = "SOLD";
+      }
+    }
     const { car } = this.props.location.state;
-
+    
     return (
       <div className="product-details-container"> {/* Apply CSS class */}
         <div className="product-image"> {/* Apply CSS class */}
@@ -42,11 +59,20 @@ class CarDetailsPage extends Component {
           <div className="product-price"> {/* Apply CSS class */}
             <p>Price: €{car.price}</p>
           </div>
+          <div className="product-fabric">
+            <p>Fabric: {car.fabric}</p>
+          </div>
           <div className="product-description"> {/* Apply CSS class */}
             <p>Description: {car.description}</p>
           </div>
+          <div>
+          <p>
+          {soldOrForSale}
+          </p>
+          </div>
           {/* Add more details as needed */}
         </div>
+        
       </div>
     );
   }

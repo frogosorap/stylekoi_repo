@@ -3,13 +3,15 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin: 20px;
+  margin: 20px auto; /* Center the container horizontally */
+  max-width: 1200px; /* Limit maximum width */
+  padding: 0 20px; /* Add padding to the sides */
 }
 
 /* Product image */
 .product-image {
   flex: 1;
-  max-width: 50%;
+  max-width: 30%;
   margin-right: 20px;
 }
 
@@ -57,6 +59,20 @@
 
 .additional-details li {
   margin-bottom: 5px;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .product-details-container {
+    flex-direction: column; /* Stack items vertically on smaller screens */
+    align-items: center; /* Center items horizontally */
+  }
+  
+  .product-image {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px; /* Add space between image and product info */
+  }
 }
 
 
