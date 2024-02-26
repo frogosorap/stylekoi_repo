@@ -12,7 +12,7 @@ import {
 
 import BuyCar from "./BuyCar";
 
-export default class CarTableRow extends Component {
+class CarTableRow extends Component {
   componentDidMount() {
     this.props.car.photos.forEach((photo) => {
       axios
@@ -86,3 +86,6 @@ export default class CarTableRow extends Component {
     );
   }
 }
+
+
+export default CarTableRow;
