@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Modal from "../components/Modal"
+// import Modal from "../components/Modal";
 
 import axios from "axios";
 
@@ -12,29 +12,15 @@ import {
 
 import BuyCar from "./BuyCar";
 
-export default class CarTableRow extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-        showModal: false,
-        selectedPhotoId: null,
-      };
-        this.toggleModal = this.toggleModal.bind(this);
-    }
-
-  toggleModal(photoId) {
-    this.setState((prevState) => ({
-      showModal: !prevState.showModal,
-      selectedPhotoId: photoId,
-    }));
-  }
-  
+class CarTableRow extends Component {
   componentDidMount() {
     this.props.car.photos.forEach((photo) => {
       axios
         .get(`${SERVER_HOST}/cars/photo/${photo.filename}`)
         .then((res) => {
-          document.getElementById(photo._id).src = `data:;base64,${res.data.image}`;
+          document.getElementById(
+            photo._id
+          ).src = `data:;base64,${res.data.image}`;
         })
         .catch((err) => {
           // Handle error
@@ -43,10 +29,6 @@ export default class CarTableRow extends Component {
   }
 
   render() {
-
-    const { showModal, selectedPhotoId } = this.state;
-    const { car } = this.props;
-
     let soldOrForSale = null;
     if (localStorage.accessLevel <= ACCESS_LEVEL_GUEST) {
       if (this.props.car.sold !== true) {
@@ -59,27 +41,24 @@ export default class CarTableRow extends Component {
     }
 
     return (
-
       <div>
+        <Link
+          to={{
+            pathname: "/CarDetailsPage",
+            state: { car: this.props.car }
+          }}
+        >
         <div className="itemsBox">
           <div className="carPhotos">
             {" "}
             {this.props.car.photos.map((photo) => (
-              <img key={photo._id} id={photo._id}  alt="" onClick={() => this.toggleModal(photo._id)}/>
+              <img key={photo._id} id={photo._id} alt="" />
             ))}
           </div>
-          <h3>{this.props.car.name}</h3>
-          <i>€{this.props.car.price}</i>
-          {/* <b>
-            {this.props.car.colour} || {this.props.car.year}
-          </b>
-          <p>
-            {this.props.car.price} || {this.props.car.size}
-          </p>
-          <p>
-            {this.props.car.gender} || {this.props.car.fabric}
-          </p> */}
-          {/* <p>{this.props.car.description}</p> */}
+          <div className="details">
+            <h3>{this.props.car.name}</h3>
+            <i>€{this.props.car.price}</i>
+          </div>
           <p>
             {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
               <Link
@@ -101,45 +80,12 @@ export default class CarTableRow extends Component {
 
             {soldOrForSale}
           </p>
-          {/* <tr>
-            <td>{this.props.car.name}</td>
-            <td>{this.props.car.colour}</td>
-            <td>{this.props.car.year}</td>
-            <td>{this.props.car.price}</td>
-            <td>{this.props.car.size}</td>
-            <td>{this.props.car.gender}</td>
-            <td>{this.props.car.fabric}</td>
-            <td>{this.props.car.description}</td>
-            <td className="carPhotos">
-              {this.props.car.photos.map((photo) => (
-                <img key={photo._id} id={photo._id} alt="" />
-              ))}
-            </td>
-            <td>
-              {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
-                <Link
-                  className="green-button"
-                  to={"/EditCar/" + this.props.car._id}
-                >
-                  Edit
-                </Link>
-              ) : null}
-
-              {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? (
-                <Link
-                  className="red-button"
-                  to={"/DeleteCar/" + this.props.car._id}
-                >
-                  Delete
-                </Link>
-              ) : null}
-
-              {soldOrForSale}
-            </td>
-          </tr> */}
-          <Modal isOpen={showModal} onClose={this.toggleModal} car={car} photoId={selectedPhotoId} carPhotos={car.photos} />
         </div>
+        </Link>
       </div>
     );
   }
 }
+
+
+export default CarTableRow;

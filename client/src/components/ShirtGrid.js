@@ -9,10 +9,12 @@ export default class ShirtGrid extends Component {
     super(props)
 
     this.state = {
-      filteredShirts: [] // Initialize with an empty array
+      filteredShirts: [] || props.cars, // Initialize with an empty array
+      cars: props.cars
     };
 
     this.handleFilterChange = this.handleFilterChange.bind(this);
+    
 
   }
 
@@ -22,7 +24,8 @@ export default class ShirtGrid extends Component {
 
     // Set the initial state using props.cars
     this.setState({ filteredShirts: this.props.cars }); //not initialising
-
+    console.log(this.props.cars);
+    
   }
 
   handleFilterChange(filterValue) 
@@ -32,15 +35,17 @@ export default class ShirtGrid extends Component {
     );
 
     this.setState({ filteredShirts });
+    console.log(filteredShirts);
   }
 
   render() 
   {
+
     return (
 
       <div>
         <SearchFilter onFilterChange={this.handleFilterChange} />
-        <div className="itemsGrid">
+        <div className="itemsGrid women_section">
           {/* Renders the filtered shirts */}
           {
 

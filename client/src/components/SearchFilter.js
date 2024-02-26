@@ -25,9 +25,9 @@ export default class SearchFilter extends Component {
   {
     return (
 
-      <div>
+      <div style={{ textAlign: "center" }}>
               {/*htmlFor*/}
-        <label className="filterInput">Filter:</label>
+        <label className="filterInput">Search: &emsp;</label>
         <input
           type="text"
           id="filterInput"

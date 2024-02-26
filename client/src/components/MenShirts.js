@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 import axios from "axios"
 
-import CarTable from "./CarTable"
+// import CarTable from "./CarTable"
 import ShirtGrid from "./ShirtGrid"
 import Logout from "./Logout"
 
@@ -57,7 +57,7 @@ export default class MenShirts extends Component
                 }
                 
                 <div className="table-container">
-                    <h2>Our Men's Selection</h2>
+                    <h2>MEN'S COLLECTION</h2>
                     <ShirtGrid cars={this.state.cars} /> 
                         
                     {

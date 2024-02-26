@@ -1,28 +1,157 @@
-.itemsRow{
-    /* margin: 0 80px; */
-    /* max-width: 2000px; */
-    display: flex;
-    overflow-x: scroll;
+.itemsRow,
+.women_section {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    text-align: center;
+    padding: 10px 0;
+    margin: auto;
 }
 
-h3{
+h3 {
     margin: 0;
     padding: 0;
 }
 
-.itemsRow > div{
-    border: #000 1px solid;
-    border-radius: 12px;
-    margin: 10px;
-    padding: 10px;
+/* Make it a marquee */
+.marquee {
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 5px;
 }
 
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 20s linear infinite;
+}
 
-.itemsBox > .carPhotos > img
-{
+/* Make it move */
+@keyframes marquee {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        transform: translate(-100%, 0);
+    }
+}
+
+.itemsBox {
+    margin: 10px;
+    max-width: auto;
+}
+
+.itemsBox>.carPhotos>img:hover {
+    opacity: 0.7;
+    transition: .1s ease;
+}
+
+.details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.itemsBox>.carPhotos>img {
     overflow-x: auto;
     white-space: nowrap;
-    min-width:17.5em;
-    min-height:17.5em;
-    border-radius: 10px;
+    min-width: 100%;
+    min-height: 17.5em;
+    transition: .5s ease;
+    /* min-width: 15.5em;
+    min-height: 15.5em; */
+    /* border-radius: 10px; */
+}
+
+.parallax {
+    /* The image used */
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.pexels.com/photos/3839432/pexels-photo-3839432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+
+    /* Full height */
+    height: 85vh;
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax_header {
+    position: absolute;
+    z-index: 1000;
+    /* top: 150px;
+    left: 200px; */
+    top: 25%;
+    left: 15%;
+    width: 40%;
+}
+
+.parallax_header h1 {
+    margin: 0;
+    font-size: 3.5em;
+}
+
+#filterInput {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 1029px) {
+
+    .itemsRow,
+    .women_section {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .parallax_header h1 {
+        font-size: 3em;
+    }
+}
+
+@media only screen and (max-width: 850px) {
+
+    .itemsRow,
+    .women_section {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    /* .parallax_header h1 {
+        font-size: 2.5em;
+    } */
+
+    .carPhotos img {
+        width: 100%;
+        height: auto;
+    }
+
+    .details {
+        text-align: center;
+    }
+
+    .green-button,
+    .red-button {
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 540px) {
+
+    .itemsRow,
+    .women_section {
+        display: block;
+        margin: 0 30px;
+    }
+
+    .parallax_header h1 {
+        font-size: 2em;
+    }
 }
