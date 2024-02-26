@@ -1,3 +1,10 @@
+a {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color from parent */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+
 .container {
     padding-top: 10px;
 }
