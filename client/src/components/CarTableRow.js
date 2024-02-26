@@ -42,6 +42,12 @@ export default class CarTableRow extends Component {
 
     return (
       <div>
+        <Link
+          to={{
+            pathname: "/CarDetailsPage",
+            state: { car: this.props.car }
+          }}
+        >
         <div className="itemsBox">
           <div className="carPhotos">
             {" "}
@@ -75,6 +81,7 @@ export default class CarTableRow extends Component {
             {soldOrForSale}
           </p>
         </div>
+        </Link>
       </div>
     );
   }

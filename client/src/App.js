@@ -22,6 +22,11 @@ import PayPalMessage from "./components/PayPalMessage";
 import MenShirts from "./components/MenShirts";
 import WomenShirts from "./components/WomenShirts";
 
+
+import CarTableRow from "./components/CarTableRow"; // Import CarTableRow component
+import CarDetailsPage from "./components/CarDetailsPage"; // Import CarDetailsPage component
+
+
 import { ACCESS_LEVEL_GUEST } from "./config/global_constants";
 
 if (typeof localStorage.accessLevel === "undefined") {
@@ -79,6 +84,11 @@ export default class App extends Component {
             path="/PayPalMessage/:messageType/:payPalPaymentID"
             component={PayPalMessage}
           />
+
+          <Route path="/" exact component={CarTableRow} />
+          <Route path="/CarDetailsPage" component={CarDetailsPage} />
+
+
           <LoggedInRoute exact path="/Logout" component={Logout} />
           <LoggedInRoute exact path="/AddCar" component={AddCar} />
           <LoggedInRoute exact path="/EditCar/:id" component={EditCar} />
