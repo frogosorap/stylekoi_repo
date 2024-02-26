@@ -78,7 +78,7 @@ class CarTableRow extends Component {
               </Link>
             ) : null}
 
-            {soldOrForSale}
+            {/* {soldOrForSale} */}
           </p>
         </div>
         </Link>

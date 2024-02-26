@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import { BrowserRouter, Switch, Route, Link } from "react-router-dom"
-import "./css/App.css"
+import React, { Component } from "react";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
+import "./css/App.css";
 
 import "./css/raph.css";
 import "./css/elga.css";
@@ -21,12 +21,10 @@ import PayPalMessage from "./components/PayPalMessage";
 import MenShirts from "./components/MenShirts";
 import WomenShirts from "./components/WomenShirts";
 
-
 import CarTableRow from "./components/CarTableRow"; // Import CarTableRow component
 import CarDetailsPage from "./components/CarDetailsPage"; // Import CarDetailsPage component
 
-
-import ProfilePicture from "./components/ProfilePicture"
+import ProfilePicture from "./components/ProfilePicture";
 
 import { ACCESS_LEVEL_GUEST } from "./config/global_constants";
 
@@ -39,7 +37,9 @@ if (typeof localStorage.accessLevel === "undefined") {
 
 export default class App extends Component {
   render() {
-        const profilePhotoUrl = localStorage.profilePhoto || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVsHOtBsku-BR1Y2GbrBcLfVaUtO1GzbUbIg&usqp=CAU' // default profile pic if not logged in
+    const profilePhotoUrl =
+      localStorage.profilePhoto ||
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVsHOtBsku-BR1Y2GbrBcLfVaUtO1GzbUbIg&usqp=CAU"; // default profile pic if not logged in
 
     return (
       <BrowserRouter>
@@ -70,22 +70,30 @@ export default class App extends Component {
             <a href="#index.html">TEST</a>
           </div>
 
-                    <div class="rightnav">
-                        <Link to="/Login">Login</Link>
-                        <a href="#index.html">TEST</a>
+          <div class="rightnav">
+            <Link to="/Login">Login</Link>
+            <a href="#index.html">TEST</a>
 
-                        {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
-                            <div className="logout">
-                                {localStorage.profilePhoto !== "null" && (
-                                    <ProfilePicture profilePhotoUrl={`data:;base64,${localStorage.profilePhoto}`} />
-                                )}
-                                <Logout />
-                            </div>
-                        ) : (
-                            <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVsHOtBsku-BR1Y2GbrBcLfVaUtO1GzbUbIg&usqp=CAU'} alt="Default Profile Pic" style={{ borderRadius: '50%', height: '50px', width: '50px' }} />
-                        )}
-                    </div>
-                </div>
+            {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
+              <div className="logout">
+                {localStorage.profilePhoto !== "null" && (
+                  <ProfilePicture
+                    profilePhotoUrl={`data:;base64,${localStorage.profilePhoto}`}
+                  />
+                )}
+                <Logout />
+              </div>
+            ) : (
+              <img
+                src={
+                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVsHOtBsku-BR1Y2GbrBcLfVaUtO1GzbUbIg&usqp=CAU"
+                }
+                alt="Default Profile Pic"
+                style={{ borderRadius: "50%", height: "50px", width: "50px" }}
+              />
+            )}
+          </div>
+        </div>
 
         <Switch>
           <Route exact path="/Register" component={Register} />
@@ -101,7 +109,6 @@ export default class App extends Component {
 
           <Route path="/" exact component={CarTableRow} />
           <Route path="/CarDetailsPage" component={CarDetailsPage} />
-
 
           <LoggedInRoute exact path="/Logout" component={Logout} />
           <LoggedInRoute exact path="/AddCar" component={AddCar} />
