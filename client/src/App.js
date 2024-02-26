@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom"
-
 import "./css/App.css"
 
 import "./css/raph.css"
@@ -22,6 +21,8 @@ import PayPalMessage from "./components/PayPalMessage"
 import MenShirts from "./components/MenShirts"
 import WomenShirts from "./components/WomenShirts"
 
+import ProfilePicture from "./components/ProfilePicture"
+
 import { ACCESS_LEVEL_GUEST } from "./config/global_constants"
 
 
@@ -35,6 +36,8 @@ if (typeof localStorage.accessLevel === "undefined") {
 
 export default class App extends Component {
     render() {
+        const profilePhotoUrl = localStorage.profilePhoto || 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVsHOtBsku-BR1Y2GbrBcLfVaUtO1GzbUbIg&usqp=CAU' // default profile pic if not logged in
+
         return (
             <BrowserRouter>
                 <div class="banner">
@@ -55,6 +58,17 @@ export default class App extends Component {
                     <div class="rightnav">
                         <Link to="/Login">Login</Link>
                         <a href="#index.html">TEST</a>
+
+                        {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
+                            <div className="logout">
+                                {localStorage.profilePhoto !== "null" && (
+                                    <ProfilePicture profilePhotoUrl={`data:;base64,${localStorage.profilePhoto}`} />
+                                )}
+                                <Logout />
+                            </div>
+                        ) : (
+                            <img src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVsHOtBsku-BR1Y2GbrBcLfVaUtO1GzbUbIg&usqp=CAU'} alt="Default Profile Pic" style={{ borderRadius: '50%', height: '50px', width: '50px' }} />
+                        )}
                     </div>
                 </div>
 

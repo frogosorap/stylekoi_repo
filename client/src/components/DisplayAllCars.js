@@ -35,26 +35,11 @@ export default class DisplayAllCars extends Component
         })
     }
 
-  
+    // remove the pfp code here once app.js and profilepicture.js code works
     render() 
     {   
-        return (           
+        return (        
             <div className="form-container">
-                {
-                    localStorage.accessLevel > ACCESS_LEVEL_GUEST 
-                    ? <div className="logout">
-                        {
-                            localStorage.profilePhoto !== "null" 
-                            ? <img id="profilePhoto" src={`data:;base64,${localStorage.profilePhoto}`} alt=""/>
-                            : null
-                        }                        
-                        <Logout/>
-                      </div>
-                    : <div>
-                        <Link className="green-button" to={"/Login"}>Login</Link>
-                        <Link className="blue-button" to={"/Register"}>Register</Link>  
-                        <Link className="red-button" to={"/ResetDatabase"}>Reset Database</Link>  <br/><br/><br/></div>
-                }
                 
                 <div className="table-container">
                     <h2>Our Products</h2>
