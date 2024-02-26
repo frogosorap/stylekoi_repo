@@ -20,3 +20,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+::-webkit-scrollbar {
+  width: 15px; /* Set the width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; /* Set the background color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000; /* Set the color of the thumb */
+  border-radius: 10px; /* Set the border radius to create rounded edges */
+}

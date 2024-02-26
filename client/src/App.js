@@ -67,7 +67,7 @@ export default class App extends Component {
             <Link to="/DisplayAllCars">ALL SHIRTS</Link>
             <Link to="/MenShirts">MEN'S SHIRTS</Link>
             <Link to="/WomenShirts">WOMENS SHIRTS</Link>
-            <a href="#index.html">TEST</a>
+            <a href="#index.html">SALE</a>
           </div>
 
           <div class="rightnav">

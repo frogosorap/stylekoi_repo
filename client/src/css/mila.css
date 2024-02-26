@@ -24,8 +24,8 @@
     position: sticky;
     top: 31.6px;
     z-index: 2;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     display: flex;
     justify-content: space-between;
 }
