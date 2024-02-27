@@ -21,6 +21,8 @@ import PayPalMessage from "./components/PayPalMessage";
 import MenShirts from "./components/MenShirts";
 import WomenShirts from "./components/WomenShirts";
 
+import BasketPage from "./components/BasketPage";
+
 
 import CarTableRow from "./components/CarTableRow"; // Import CarTableRow component
 import CarDetailsPage from "./components/CarDetailsPage"; // Import CarDetailsPage component
@@ -72,7 +74,7 @@ export default class App extends Component {
 
                     <div class="rightnav">
                         <Link to="/Login">Login</Link>
-                        <a href="#index.html">TEST</a>
+                        <Link to="/Basket">Basket</Link>
 
                         {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
                             <div className="logout">
@@ -101,7 +103,8 @@ export default class App extends Component {
 
           <Route path="/" exact component={CarTableRow} />
           <Route path="/CarDetailsPage" component={CarDetailsPage} />
-
+          
+          <Route exact path="/Basket" component={BasketPage} />
 
           <LoggedInRoute exact path="/Logout" component={Logout} />
           <LoggedInRoute exact path="/AddCar" component={AddCar} />

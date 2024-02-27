@@ -1,78 +1,88 @@
 import React, { Component } from "react";
 import axios from "axios";
-
-
-import {
-  ACCESS_LEVEL_GUEST,
-  SERVER_HOST,
-} from "../config/global_constants";
-
+import { ACCESS_LEVEL_GUEST, SERVER_HOST } from "../config/global_constants";
 import BuyCar from "./BuyCar";
 
 class CarDetailsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageUrl: "", // Initialize imageUrl state variable
+      imageUrl: "",
+      basketItems: JSON.parse(localStorage.getItem("basketItems")) || [], // Initialize basketItems from local storage
     };
   }
 
   componentDidMount() {
     const { car } = this.props.location.state;
-    const filename = car.photos.length > 0 ? car.photos[0].filename : ""; // Get the filename of the first photo
+    const filename = car.photos.length > 0 ? car.photos[0].filename : "";
 
-    // Fetch the image data from the server using the filename
     axios
       .get(`${SERVER_HOST}/cars/photo/${filename}`)
       .then((res) => {
-        const imageUrl = `data:image/jpeg;base64,${res.data.image}`; // Construct the image URL
-        this.setState({ imageUrl }); // Update the state with the image URL
+        const imageUrl = `data:image/jpeg;base64,${res.data.image}`;
+        this.setState({ imageUrl });
       })
       .catch((err) => {
-        // Handle error
         console.error("Error fetching image:", err);
       });
   }
 
-  render() {
-    
-    let soldOrForSale = null;
-    if (localStorage.accessLevel <= ACCESS_LEVEL_GUEST) {
-      if (this.props.location.state.car.sold !== true) {
-        soldOrForSale = (
-          <BuyCar carID={this.props.location.state.car._id} price={this.props.location.state.car.price} />
-        );
-      } else {
-        soldOrForSale = "SOLD";
-      }
-    }
+  addToBasket() {
     const { car } = this.props.location.state;
-    
+    const newItem = {
+      id: car._id, // Assuming each car has a unique ID
+      name: car.name,
+      price: car.price,
+      // Add more properties as needed
+    };
+  
+    // Get the current basket items from local storage
+    let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
+  
+    // Add the new item to the basket
+    basketItems.push(newItem);
+  
+    // Update basket items in local storage
+    localStorage.setItem("basketItems", JSON.stringify(basketItems));
+  
+    // Update state to trigger re-render if necessary
+    this.setState({ basketItems: basketItems });
+  }
+
+  render() {
+    const { car } = this.props.location.state;
+
     return (
-      <div className="product-details-container"> {/* Apply CSS class */}
-        <div className="product-image"> {/* Apply CSS class */}
-          {/* Display the image with the fetched image URL or a placeholder image */}
-          <img src={this.state.imageUrl || 'placeholder.jpg'} alt="Car" />
+      <div className="product-details-container">
+        <div className="product-image">
+          <img src={this.state.imageUrl || "placeholder.jpg"} alt="Car" />
         </div>
-        <div className="product-info"> {/* Apply CSS class */}
-          <h1 className="product-title">{car.name}</h1> {/* Apply CSS class */}
-          <div className="product-price"> {/* Apply CSS class */}
+        <div className="product-info">
+          <h1 className="product-title">{car.name}</h1>
+          <div className="product-price">
             <p>Price: €{car.price}</p>
           </div>
           <div className="product-fabric">
             <p>Fabric: {car.fabric}</p>
           </div>
-          <div className="product-description"> {/* Apply CSS class */}
+          <div className="product-description">
             <p>Description: {car.description}</p>
           </div>
           <div>
-          <p>
-          {soldOrForSale}
-          </p>
+            {localStorage.accessLevel <= ACCESS_LEVEL_GUEST &&
+              (this.props.location.state.car.sold !== true ? (
+                <React.Fragment>
+                  <BuyCar
+                    carID={this.props.location.state.car._id}
+                    price={this.props.location.state.car.price}
+                  />
+                  <button onClick={() => this.addToBasket()}>Add to Basket</button>
+                </React.Fragment>
+              ) : (
+                "SOLD"
+              ))}
           </div>
-          {/* Add more details as needed */}
         </div>
-        
       </div>
     );
   }
