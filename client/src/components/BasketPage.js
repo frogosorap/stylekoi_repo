@@ -52,6 +52,7 @@ class BasketPage extends Component {
   }
 
   render() {
+
     const { basketItems } = this.state;
 
     // Group items based on their IDs and count their quantities
@@ -63,6 +64,11 @@ class BasketPage extends Component {
       groupedItems[item.id].quantity += 1; // Increment quantity
     });
 
+    // Calculate total price of all items
+    const totalPrice = Object.values(groupedItems).reduce((total, item) => {
+      return total + (item.price * item.quantity);
+    }, 0);
+
     return (
       <div className="basket-page">
         <h1>Basket</h1>
@@ -72,6 +78,7 @@ class BasketPage extends Component {
               <th>Name</th>
               <th>Price</th>
               <th>Quantity</th>
+              <th>Total Price</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -81,6 +88,7 @@ class BasketPage extends Component {
                 <td>{item.name}</td>
                 <td>€{item.price}</td>
                 <td>{item.quantity}</td>
+                <td>€{(item.price * item.quantity).toFixed(2)}</td>
                 <td>
                   <button onClick={this.handleDelete.bind(this, index)}>Delete</button>
                   <button onClick={() => this.handleIncreaseQuantity(item.id)}>+</button>
@@ -90,6 +98,9 @@ class BasketPage extends Component {
             ))}
           </tbody>
         </table>
+        <div className="total-price">
+          Total Price: €{totalPrice.toFixed(2)}
+        </div>
       </div>
     );
   }
