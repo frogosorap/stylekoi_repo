@@ -24,6 +24,8 @@ import WomenShirts from "./components/WomenShirts";
 import CarTableRow from "./components/CarTableRow"; // Import CarTableRow component
 import CarDetailsPage from "./components/CarDetailsPage"; // Import CarDetailsPage component
 
+import BasketPage from "./components/BasketPage";
+
 import ProfilePicture from "./components/ProfilePicture";
 
 import { ACCESS_LEVEL_GUEST } from "./config/global_constants";
