@@ -64,28 +64,34 @@ class BasketPage extends Component {
     return (
       <div className="basket-page">
         <h1>Basket</h1>
-        <table className="basket-table">
-          <tbody>
-            {basketItems.map((item, index) => (
-              <tr key={index} className="basket-item">
-                <td>
-                  <img src={item.imageUrl} alt={item.name} />
-                </td>
-                <td>€{item.price}</td>
-                <td>€{(item.price * item.quantity).toFixed(2)}</td>
-                <td>
-                  <button onClick={() => this.handleDecreaseQuantity(item.id)}>-</button>
-                  {item.quantity}
-                  <button onClick={() => this.handleIncreaseQuantity(item.id)}>+</button>
-                </td>
-                <td><button onClick={() => this.handleDelete(index)}>X</button></td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-        <div className="total-price">
-          Total Price: €{totalPrice.toFixed(2)}
-        </div>
+        {basketItems.length === 0 ? (
+          <h4>There are currently no items in your basket.</h4>
+        ) : (
+          <React.Fragment>
+            <table className="basket-table">
+              <tbody>
+                {basketItems.map((item, index) => (
+                  <tr key={index} className="basket-item">
+                    <td>
+                      <img src={item.imageUrl} alt={item.name} />
+                    </td>
+                    <td>€{item.price}</td>
+                    <td>€{(item.price * item.quantity).toFixed(2)}</td>
+                    <td>
+                      <button onClick={() => this.handleDecreaseQuantity(item.id)}>-</button>
+                      {item.quantity}
+                      <button onClick={() => this.handleIncreaseQuantity(item.id)}>+</button>
+                    </td>
+                    <td><button onClick={() => this.handleDelete(index)}>X</button></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div className="total-price">
+              Total Price: €{totalPrice.toFixed(2)}
+            </div>
+          </React.Fragment>
+        )}
       </div>
     );
   }
