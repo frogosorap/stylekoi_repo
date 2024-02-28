@@ -24,41 +24,41 @@ export default class BuyBasket extends Component {
   };
 
   onApprove = (paymentData) => {
-    axios
-      .post(
-        `${SERVER_HOST}/sales/${paymentData.orderID}`,
+    axios.post(
+        `${SERVER_HOST}/salesbasket/${paymentData.orderID}`,
         {
-          items: this.props.items,
-          totalPrice: this.props.totalPrice,
+            items: this.props.items,
+            totalPrice: this.props.totalPrice,
         },
         {
-          headers: {
-            authorization: localStorage.token,
-            "Content-type": "application/json",
-          },
+            headers: {
+                authorization: localStorage.token,
+                "Content-type": "application/json",
+            },
         }
-      )
-      .then((res) => {
+    )
+    .then((res) => {
         this.setState({
-          payPalMessageType: PayPalMessage.messageType.SUCCESS,
-          payPalOrderID: paymentData.orderID,
-          redirectToPayPalMessage: true,
+            payPalMessageType: PayPalMessage.messageType.SUCCESS,
+            payPalOrderID: paymentData.orderID,
+            redirectToPayPalMessage: true,
         });
-      })
-      .catch((errorData) => {
+    })
+    .catch((errorData) => {
         this.setState({
-          payPalMessageType: PayPalMessage.messageType.ERROR,
-          redirectToPayPalMessage: true,
+            payPalMessageType: PayPalMessage.messageType.ERROR,
+            redirectToPayPalMessage: true,
         });
-      });
-  };
+    });
+};
 
-  onError = (errorData) => {
-    this.setState({
+onError = (errorData) => {
+  console.log("Error occurred during payment:", errorData);
+  this.setState({
       payPalMessageType: PayPalMessage.messageType.ERROR,
       redirectToPayPalMessage: true,
-    });
-  };
+  });
+};
 
   onCancel = (cancelData) => {
     this.setState({
