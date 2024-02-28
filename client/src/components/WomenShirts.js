@@ -24,13 +24,14 @@ export default class MenShirts extends Component {
 
   componentDidMount() {
     axios
-      .get(`${SERVER_HOST}/cars`)
-      .then((res) => {
-        this.setState({ cars: res.data });
-      })
-      .catch((err) => {
-        // do nothing
-      });
+    .get(`${SERVER_HOST}/cars`)
+    .then((res) => {
+      const womenShirts = res.data.filter((shirt) => shirt.gender === "F");
+      this.setState({ cars: womenShirts });
+    })
+    .catch((err) => {
+      console.error("Error fetching women's shirts:", err);
+    });
   }
 
   render() {
