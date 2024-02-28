@@ -72,9 +72,9 @@ export default class App extends Component {
             <a href="#index.html">SALE</a>
           </div>
 
-                    <div class="rightnav">
-                        <Link to="/Login">Login</Link>
-                        <Link to="/Basket">Basket</Link>
+          <div class="rightnav">
+            <Link to="/Login">Login</Link>
+            <Link to="/Basket">Basket</Link>
 
             {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
               <div className="logout">
@@ -111,7 +111,7 @@ export default class App extends Component {
 
           <Route path="/" exact component={CarTableRow} />
           <Route path="/CarDetailsPage" component={CarDetailsPage} />
-          
+
           <Route exact path="/Basket" component={BasketPage} />
 
           <LoggedInRoute exact path="/Logout" component={Logout} />
