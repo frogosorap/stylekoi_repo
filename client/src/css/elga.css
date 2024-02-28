@@ -1,3 +1,12 @@
+/* Misc */
+
+h3 {
+    margin: 0;
+    padding: 0;
+}
+
+/* Grid Section */
+
 .itemsRow,
 .women_section {
     display: grid;
@@ -7,12 +16,8 @@
     margin: auto;
 }
 
-h3 {
-    margin: 0;
-    padding: 0;
-}
+/* Marquee */
 
-/* Make it a marquee */
 .marquee {
     margin: 0 auto;
     white-space: nowrap;
@@ -38,15 +43,7 @@ h3 {
     }
 }
 
-.itemsBox {
-    margin: 10px;
-    max-width: auto;
-}
-
-.itemsBox>.carPhotos>img:hover {
-    opacity: 0.7;
-    transition: .5s ease;
-}
+/* Items Box */
 
 .details {
     display: flex;
@@ -54,24 +51,20 @@ h3 {
 }
 
 .itemsBox {
+    margin: 10px;
+    max-width: auto;
     position: relative;
-    /* Position for navigation arrows */
 }
 
 .itemsBox>.carPhotos {
     white-space: nowrap;
-    /* Prevent wrapping to the next line */
     position: relative;
-    /* Position for navigation arrows */
 }
 
 .itemsBox>.carPhotos.scrollable {
     display: flex;
-    /* Ensure images are in a row */
     justify-content: center;
-    /* Center images horizontally */
     align-items: center;
-    /* Center images vertically */
 }
 
 .itemsBox>.carPhotos img {
@@ -79,11 +72,13 @@ h3 {
     min-height: 17.5em;
     transition: .15s ease;
     flex-shrink: 0;
-    /* Prevent images from shrinking to fit */
     margin-right: 10px;
-    /* Add spacing between images */
     transition: transform 0.8s ease-in-out;
-    /* Smooth transition effect */
+}
+
+.itemsBox>.carPhotos>img:hover {
+    opacity: 0.7;
+    transition: .5s ease;
 }
 
 .itemsBox>.prev,
@@ -105,16 +100,11 @@ h3 {
     right: 0px;
 }
 
-
+/* Parallax Image */
 
 .parallax {
-    /* The image used */
     background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.pexels.com/photos/3839432/pexels-photo-3839432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
-
-    /* Full height */
     height: 85vh;
-
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -123,8 +113,6 @@ h3 {
 
 .parallax_header {
     position: absolute;
-    /* top: 150px;
-    left: 200px; */
     top: 25%;
     left: 15%;
     width: 40%;
@@ -135,6 +123,8 @@ h3 {
     font-size: 3.5em;
 }
 
+/* Input Box */
+
 #filterInput {
     width: 80%;
     padding: 12px 20px;
@@ -144,6 +134,8 @@ h3 {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+/* Responsive Queries */
 
 @media only screen and (max-width: 1029px) {
 
