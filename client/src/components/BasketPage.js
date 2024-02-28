@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import CarTableRow from "./CarTableRow";
+import SearchFilter from "./SearchFilter";
+import BuyBasket from "./BuyBasket";
 
 class BasketPage extends Component {
   constructor(props) {
@@ -7,7 +10,6 @@ class BasketPage extends Component {
       basketItems: JSON.parse(localStorage.getItem("basketItems")) || [],
     };
 
-    // Bind methods to the class instance
     this.handleDelete = this.handleDelete.bind(this);
     this.handleIncreaseQuantity = this.handleIncreaseQuantity.bind(this);
     this.handleDecreaseQuantity = this.handleDecreaseQuantity.bind(this);
@@ -16,7 +18,7 @@ class BasketPage extends Component {
   handleDelete(index) {
     const { basketItems } = this.state;
     const itemId = basketItems[index].id;
-    const updatedBasketItems = basketItems.filter(item => item.id !== itemId);
+    const updatedBasketItems = basketItems.filter((item) => item.id !== itemId);
 
     localStorage.setItem("basketItems", JSON.stringify(updatedBasketItems));
     this.setState({ basketItems: updatedBasketItems });
@@ -24,10 +26,10 @@ class BasketPage extends Component {
 
   handleIncreaseQuantity(id) {
     const { basketItems } = this.state;
-  
-    const updatedBasketItems = basketItems.map(item => {
+
+    const updatedBasketItems = basketItems.map((item) => {
       if (item.id === id) {
-        return { ...item, quantity: (item.quantity || 0) + 1 }; // Increment quantity
+        return { ...item, quantity: (item.quantity || 0) + 1 };
       }
       return item;
     });
@@ -35,11 +37,11 @@ class BasketPage extends Component {
     localStorage.setItem("basketItems", JSON.stringify(updatedBasketItems));
     this.setState({ basketItems: updatedBasketItems });
   }
-  
+
   handleDecreaseQuantity(id) {
     const { basketItems } = this.state;
-  
-    const updatedBasketItems = basketItems.map(item => {
+
+    const updatedBasketItems = basketItems.map((item) => {
       if (item.id === id) {
         const newQuantity = (item.quantity || 0) - 1;
         const quantity = newQuantity >= 0 ? newQuantity : 0;
@@ -53,14 +55,12 @@ class BasketPage extends Component {
   }
 
   render() {
-
     const { basketItems } = this.state;
 
-    // Calculate total price of all items
     const totalPrice = basketItems.reduce((total, item) => {
-      return total + (item.price * item.quantity);
+      return total + item.price * item.quantity;
     }, 0);
-    
+
     return (
       <div className="basket-page">
         <h1>Basket</h1>
@@ -78,18 +78,27 @@ class BasketPage extends Component {
                     <td>€{item.price}</td>
                     <td>€{(item.price * item.quantity).toFixed(2)}</td>
                     <td>
-                      <button onClick={() => this.handleDecreaseQuantity(item.id)}>-</button>
+                      <button
+                        onClick={() => this.handleDecreaseQuantity(item.id)}
+                      >
+                        -
+                      </button>
                       {item.quantity}
-                      <button onClick={() => this.handleIncreaseQuantity(item.id)}>+</button>
+                      <button
+                        onClick={() => this.handleIncreaseQuantity(item.id)}
+                      >
+                        +
+                      </button>
                     </td>
-                    <td><button onClick={() => this.handleDelete(index)}>X</button></td>
+                    <td>
+                      <button onClick={() => this.handleDelete(index)}>X</button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
-            <div className="total-price">
-              Total Price: €{totalPrice.toFixed(2)}
-            </div>
+            <div className="total-price">Total Price: €{totalPrice.toFixed(2)}</div>
+            <BuyBasket items={basketItems} totalPrice={totalPrice} />
           </React.Fragment>
         )}
       </div>
