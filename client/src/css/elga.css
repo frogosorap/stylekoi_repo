@@ -63,7 +63,7 @@ h3 {
 
 .carLinkWrapper {
     display: inline-block;
-  }
+}
 
 .itemsBox>.carPhotos.scrollable {
     display: flex;
@@ -110,13 +110,24 @@ h3 {
 /* Parallax Image */
 
 .parallax {
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://images.pexels.com/photos/3839432/pexels-photo-3839432.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://dreambutdonotsleep.com/cdn/shop/files/website-banner_1252182d-7a20-4b53-bb39-dbb82695fb37.gif?v=1677684383&width=1500');
     height: 85vh;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    /* animation: loopBackground 10s infinite; */
 }
+
+/* @keyframes loopBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+} */
+
 
 .parallax_header {
     position: absolute;
