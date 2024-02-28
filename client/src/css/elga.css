@@ -110,7 +110,8 @@ h3 {
 /* Parallax Image */
 
 .parallax {
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://dreambutdonotsleep.com/cdn/shop/files/website-banner_1252182d-7a20-4b53-bb39-dbb82695fb37.gif?v=1677684383&width=1500');
+    background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3)), url('https://cdn.discordapp.com/attachments/1030153058929352725/1212382335777906708/ezgif.com-animated-gif-maker_1.gif?ex=65f1a209&is=65df2d09&hm=3085c1669252613becf9e2ba2b10eae4809e13716a764a77ac8a61045650ebae&');
+    /* background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('https://dreambutdonotsleep.com/cdn/shop/files/website-banner_1252182d-7a20-4b53-bb39-dbb82695fb37.gif?v=1677684383&width=1500'); */
     height: 85vh;
     background-attachment: fixed;
     background-position: center;
@@ -120,10 +121,11 @@ h3 {
 
 
 .parallax_header {
+    text-align: center;
     position: absolute;
-    top: 25%;
-    left: 15%;
-    width: 40%;
+    top: 35%;
+    left: 25%;
+    /* width: 40%; */
 }
 
 .parallax_header h1 {
