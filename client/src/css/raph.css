@@ -1,39 +1,76 @@
 /* Basket CSS */
+.basket-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 .basket-table {
   width: 100%;
   border-collapse: collapse;
 }
 
-.basket-table th,
+
 .basket-table td {
-  border: 1px solid #dddddd;
+  border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
 }
 
-.basket-table th {
-  background-color: #f2f2f2;
+
+.basket-item {
+  background-color: #fff;
 }
 
-.basket-table tr:nth-child(even) {
-  background-color: #f2f2f2;
+.basket-item:hover {
+  background-color: #f9f9f9;
 }
 
-.basket-table tr:hover {
-  background-color: #ddd;
+.total-price {
+  margin-top: 20px;
+  font-size: 18px;
+  text-align: right;
 }
 
-.basket-table button {
-  padding: 5px 10px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
+button {
   cursor: pointer;
+  padding: 8px 12px;
+  border: none;
+  background-color: black;
+  color: #fff;
+  border-radius: 4px;
+  margin: 4px;
 }
 
-.basket-table button:hover {
-  background-color: #45a049;
+button:hover {
+  background-color: #E53D1C;
 }
+
+button:active {
+  background-color: #E53D1C;
+  transform: translateY(1px);
+}
+
+
+.basket-button {
+  cursor: pointer;
+  padding: 8px 12px;
+  border: none;
+  background-color: black;
+  color: #fff;
+  border-radius: 4px;
+  
+}
+
+.basket-button:hover {
+  background-color: #E53D1C;
+}
+
+.basket-button:active {
+  background-color: #E53D1C;
+  transform: translateY(1px);
+}
+
+
 
 /* Product details container */
 .product-details-container {

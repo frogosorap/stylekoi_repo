@@ -33,7 +33,7 @@ export default class DisplayAllCars extends Component {
       });
   }
 
-  // remove the pfp code here once app.js and profilepicture.js code works
+  // removed the pfp code here to app.js and profilepicture.js
   render() {
     return (
       <div className="form-container">
