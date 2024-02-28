@@ -23,7 +23,7 @@
     width: 100%;
     position: sticky;
     top: 29px;
-    z-index: 10;
+    z-index: 1000;
     padding-top: 3px;
     padding-bottom: 3px;
     display: flex;

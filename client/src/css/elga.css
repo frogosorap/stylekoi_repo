@@ -116,17 +116,7 @@ h3 {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    /* animation: loopBackground 10s infinite; */
 }
-
-/* @keyframes loopBackground {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
-} */
 
 
 .parallax_header {
