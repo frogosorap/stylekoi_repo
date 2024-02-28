@@ -72,11 +72,11 @@ class CarDetailsPage extends Component {
             {localStorage.accessLevel <= ACCESS_LEVEL_GUEST &&
               (this.props.location.state.car.sold !== true ? (
                 <React.Fragment>
+                  <button className="basket-button" onClick={() => this.addToBasket()}>Add to Basket</button>
                   <BuyCar
                     carID={this.props.location.state.car._id}
                     price={this.props.location.state.car.price}
                   />
-                  <button onClick={() => this.addToBasket()}>Add to Basket</button>
                 </React.Fragment>
               ) : (
                 "SOLD"

@@ -24,29 +24,31 @@ class BasketPage extends Component {
 
   handleIncreaseQuantity(id) {
     const { basketItems } = this.state;
+  
     const updatedBasketItems = basketItems.map(item => {
       if (item.id === id) {
-        return { ...item, quantity: (item.quantity || 0) + 1 }; // Initialize quantity to 0 if undefined
+        return { ...item, quantity: (item.quantity || 0) + 1 }; // Increment quantity
       }
       return item;
     });
+    console.log(updatedBasketItems)
 
     localStorage.setItem("basketItems", JSON.stringify(updatedBasketItems));
     this.setState({ basketItems: updatedBasketItems });
   }
-
+  
   handleDecreaseQuantity(id) {
     const { basketItems } = this.state;
-
+  
     const updatedBasketItems = basketItems.map(item => {
       if (item.id === id) {
-        const newQuantity = item.quantity - 1;
+        const newQuantity = (item.quantity || 0) - 1;
         const quantity = newQuantity >= 0 ? newQuantity : 0;
         return { ...item, quantity };
       }
       return item;
     });
-
+    console.log(updatedBasketItems)
     localStorage.setItem("basketItems", JSON.stringify(updatedBasketItems));
     this.setState({ basketItems: updatedBasketItems });
   }
@@ -55,13 +57,16 @@ class BasketPage extends Component {
 
     const { basketItems } = this.state;
 
-    // Group items based on their IDs and count their quantities
+    // Group items based on their IDs and initialize their quantities
     const groupedItems = {};
     basketItems.forEach(item => {
-      if (!groupedItems[item.id]) {
-        groupedItems[item.id] = { ...item, quantity: 0 };
+      const { id, name, price } = item;
+      const quantity = item.quantity || 0; // Set quantity to 0 if not provided
+      if (!groupedItems[id]) {
+        groupedItems[id] = { id, name, price, quantity };
+      } else {
+        groupedItems[id].quantity += quantity; // Add to existing quantity
       }
-      groupedItems[item.id].quantity += 1; // Increment quantity
     });
 
     // Calculate total price of all items
@@ -73,27 +78,18 @@ class BasketPage extends Component {
       <div className="basket-page">
         <h1>Basket</h1>
         <table className="basket-table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Quantity</th>
-              <th>Total Price</th>
-              <th>Action</th>
-            </tr>
-          </thead>
           <tbody>
             {Object.values(groupedItems).map((item, index) => (
               <tr key={index} className="basket-item">
                 <td>{item.name}</td>
                 <td>€{item.price}</td>
-                <td>{item.quantity}</td>
-                <td>€{(item.price * item.quantity).toFixed(2)}</td>
                 <td>
-                  <button onClick={this.handleDelete.bind(this, index)}>Delete</button>
                   <button onClick={() => this.handleIncreaseQuantity(item.id)}>+</button>
+                  {item.quantity}
                   <button onClick={() => this.handleDecreaseQuantity(item.id)}>-</button>
                 </td>
+                <td>€{(item.price * item.quantity).toFixed(2)}</td>
+                <td><button onClick={this.handleDelete.bind(this, index)}>Delete</button></td>
               </tr>
             ))}
           </tbody>
