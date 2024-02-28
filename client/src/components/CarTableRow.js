@@ -82,12 +82,21 @@ class CarTableRow extends Component {
                 &lt;
               </div>
               <div className="carPhotos scrollable">
-                <img
-                  key={this.props.car.photos[currentIndex]._id}
-                  id={this.props.car.photos[currentIndex]._id}
-                  alt=""
-                />
+                <Link
+                  to={{
+                    pathname: "/CarDetailsPage",
+                    state: { car: this.props.car },
+                  }}
+                  style={{ width: "100%", display: "inline-block" }}
+                >
+                  <img
+                    key={this.props.car.photos[currentIndex]._id}
+                    id={this.props.car.photos[currentIndex]._id}
+                    alt=""
+                  />
+                </Link>
               </div>
+
               <div className="next" onClick={() => this.handleNextClick()}>
                 &gt;
               </div>
@@ -98,7 +107,14 @@ class CarTableRow extends Component {
             <div className="carPhotos">
               {" "}
               {this.props.car.photos.map((photo) => (
-                <img key={photo._id} id={photo._id} alt="" />
+                <Link
+                  to={{
+                    pathname: "/CarDetailsPage",
+                    state: { car: this.props.car },
+                  }}
+                >
+                  <img key={photo._id} id={photo._id} alt="" />
+                </Link>
               ))}
             </div>
           )}

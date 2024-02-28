@@ -61,6 +61,10 @@ h3 {
     position: relative;
 }
 
+.carLinkWrapper {
+    display: inline-block;
+  }
+
 .itemsBox>.carPhotos.scrollable {
     display: flex;
     justify-content: center;
