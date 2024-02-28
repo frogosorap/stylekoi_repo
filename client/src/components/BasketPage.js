@@ -31,7 +31,6 @@ class BasketPage extends Component {
       }
       return item;
     });
-    console.log(updatedBasketItems)
 
     localStorage.setItem("basketItems", JSON.stringify(updatedBasketItems));
     this.setState({ basketItems: updatedBasketItems });
@@ -48,7 +47,7 @@ class BasketPage extends Component {
       }
       return item;
     });
-    console.log(updatedBasketItems)
+
     localStorage.setItem("basketItems", JSON.stringify(updatedBasketItems));
     this.setState({ basketItems: updatedBasketItems });
   }
@@ -57,39 +56,29 @@ class BasketPage extends Component {
 
     const { basketItems } = this.state;
 
-    // Group items based on their IDs and initialize their quantities
-    const groupedItems = {};
-    basketItems.forEach(item => {
-      const { id, name, price } = item;
-      const quantity = item.quantity || 0; // Set quantity to 0 if not provided
-      if (!groupedItems[id]) {
-        groupedItems[id] = { id, name, price, quantity };
-      } else {
-        groupedItems[id].quantity += quantity; // Add to existing quantity
-      }
-    });
-
     // Calculate total price of all items
-    const totalPrice = Object.values(groupedItems).reduce((total, item) => {
+    const totalPrice = basketItems.reduce((total, item) => {
       return total + (item.price * item.quantity);
     }, 0);
-
+    
     return (
       <div className="basket-page">
         <h1>Basket</h1>
         <table className="basket-table">
           <tbody>
-            {Object.values(groupedItems).map((item, index) => (
+            {basketItems.map((item, index) => (
               <tr key={index} className="basket-item">
-                <td>{item.name}</td>
-                <td>€{item.price}</td>
                 <td>
-                  <button onClick={() => this.handleIncreaseQuantity(item.id)}>+</button>
-                  {item.quantity}
-                  <button onClick={() => this.handleDecreaseQuantity(item.id)}>-</button>
+                  <img src={item.imageUrl} alt={item.name} />
                 </td>
+                <td>€{item.price}</td>
                 <td>€{(item.price * item.quantity).toFixed(2)}</td>
-                <td><button onClick={this.handleDelete.bind(this, index)}>Delete</button></td>
+                <td>
+                  <button onClick={() => this.handleDecreaseQuantity(item.id)}>-</button>
+                  {item.quantity}
+                  <button onClick={() => this.handleIncreaseQuantity(item.id)}>+</button>
+                </td>
+                <td><button onClick={() => this.handleDelete(index)}>X</button></td>
               </tr>
             ))}
           </tbody>

@@ -29,24 +29,28 @@ class CarDetailsPage extends Component {
 
   addToBasket() {
     const { car } = this.props.location.state;
-    const newItem = {
-      id: car._id, // Assuming each car has a unique ID
-      name: car.name,
-      price: car.price,
-      // Add more properties as needed
-    };
+    const filename = car.photos.length > 0 ? car.photos[0].filename : "";
+    axios
+      .get(`${SERVER_HOST}/cars/photo/${filename}`)
+      .then((res) => {
+        const imageUrl = `data:image/jpeg;base64,${res.data.image}`;
   
-    // Get the current basket items from local storage
-    let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
+        const newItem = {
+          id: car._id,
+          name: car.name,
+          price: car.price,
+          imageUrl: imageUrl, // Add imageUrl to newItem
+          quantity: 1 // Initialize quantity to 1 when adding to basket
+        };
   
-    // Add the new item to the basket
-    basketItems.push(newItem);
-  
-    // Update basket items in local storage
-    localStorage.setItem("basketItems", JSON.stringify(basketItems));
-  
-    // Update state to trigger re-render if necessary
-    this.setState({ basketItems: basketItems });
+        let basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
+        basketItems.push(newItem);
+        localStorage.setItem("basketItems", JSON.stringify(basketItems));
+        this.setState({ basketItems: basketItems });
+      })
+      .catch((err) => {
+        console.error("Error fetching image:", err);
+      });
   }
 
   render() {
