@@ -62,7 +62,7 @@ export default class App extends Component {
         </div>
         <div className="navbar">
           <div className="leftnav">
-          <Link to="/DisplayAllCars">StyleKoi</Link>
+            <Link to="/DisplayAllCars">StyleKoi</Link>
           </div>
 
           <div className="midnav">
@@ -91,7 +91,12 @@ export default class App extends Component {
                   "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVsHOtBsku-BR1Y2GbrBcLfVaUtO1GzbUbIg&usqp=CAU"
                 }
                 alt="Default Profile Pic"
-                style={{ borderRadius: "50%", height: "50px", width: "50px" }}
+                style={{
+                  margin: "0px",
+                  borderRadius: "50%",
+                  height: "50px",
+                  width: "50px",
+                }}
               />
             )}
           </div>
