@@ -38,6 +38,7 @@
 }
 
 .midnav {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,12 +49,14 @@
 }
 
 .leftnav {
+    margin: 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
 .rightnav {
+    margin: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
