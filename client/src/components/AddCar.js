@@ -136,7 +136,7 @@ export default class AddCar extends Component
                     </Form.Group> 
 
                     <Form.Group controlId="photos">
-                    <Form.Label>Photos</Form.Label>
+                    <Form.Label>Photos [max 3]</Form.Label>
                     <Form.Control          
                         type = "file" multiple onChange = {this.handleFileChange}
                     /></Form.Group> <br/><br/>

@@ -38,11 +38,6 @@ export default class DisplayAllCars extends Component {
     return (
       <div className="form-container">
         <div className="table-container">
-          <h2 style={{ textAlign: "center" }}>COLLECTION</h2>
-          <ShirtGrid cars={this.state.cars} />
-          <br />
-          <br />
-          <br />
           {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? (
             <div className="add-new-car">
               <Link className="blue-button" to={"/AddCar"}>
@@ -50,6 +45,11 @@ export default class DisplayAllCars extends Component {
               </Link>
             </div>
           ) : null}
+          <h2 style={{ textAlign: "center" }}>COLLECTION</h2>
+          <ShirtGrid cars={this.state.cars} />
+          <br />
+          <br />
+          <br />
         </div>
       </div>
     );

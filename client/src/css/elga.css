@@ -45,7 +45,7 @@ h3 {
 
 .itemsBox>.carPhotos>img:hover {
     opacity: 0.7;
-    transition: .1s ease;
+    transition: .5s ease;
 }
 
 .details {
@@ -53,16 +53,59 @@ h3 {
     justify-content: space-between;
 }
 
-.itemsBox>.carPhotos>img {
-    overflow-x: auto;
+.itemsBox {
+    position: relative;
+    /* Position for navigation arrows */
+}
+
+.itemsBox>.carPhotos {
     white-space: nowrap;
+    /* Prevent wrapping to the next line */
+    position: relative;
+    /* Position for navigation arrows */
+}
+
+.itemsBox>.carPhotos.scrollable {
+    display: flex;
+    /* Ensure images are in a row */
+    justify-content: center;
+    /* Center images horizontally */
+    align-items: center;
+    /* Center images vertically */
+}
+
+.itemsBox>.carPhotos img {
     min-width: 100%;
     min-height: 17.5em;
-    transition: .5s ease;
-    /* min-width: 15.5em;
-    min-height: 15.5em; */
-    /* border-radius: 10px; */
+    transition: .15s ease;
+    flex-shrink: 0;
+    /* Prevent images from shrinking to fit */
+    margin-right: 10px;
+    /* Add spacing between images */
+    transition: transform 0.8s ease-in-out;
+    /* Smooth transition effect */
 }
+
+.itemsBox>.prev,
+.itemsBox>.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    z-index: 1;
+}
+
+.itemsBox>.prev {
+    left: -10px;
+}
+
+.itemsBox>.next {
+    right: 0px;
+}
+
+
 
 .parallax {
     /* The image used */
