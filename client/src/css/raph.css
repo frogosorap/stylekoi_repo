@@ -1,3 +1,40 @@
+/* Basket CSS */
+.basket-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.basket-table th,
+.basket-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.basket-table th {
+  background-color: #f2f2f2;
+}
+
+.basket-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.basket-table tr:hover {
+  background-color: #ddd;
+}
+
+.basket-table button {
+  padding: 5px 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.basket-table button:hover {
+  background-color: #45a049;
+}
+
 /* Product details container */
 .product-details-container {
   display: flex;
