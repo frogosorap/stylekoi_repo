@@ -27,12 +27,12 @@ export default class SearchFilter extends Component {
 
       <div style={{ textAlign: "center" }}>
               {/*htmlFor*/}
-        <label className="filterInput">Search: &emsp;</label>
         <input
           type="text"
           id="filterInput"
           value={this.state.filterValue}
           onChange={this.handleChange}
+          placeholder="Search..."
         />
       </div>
     );

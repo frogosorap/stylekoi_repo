@@ -1,3 +1,28 @@
+.sort-dropdown {
+  margin-left: 20px; /* Adjust margin as needed */
+}
+
+.sort-dropdown label {
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px; /* Add margin as needed */
+}
+
+.sort-dropdown select {
+  padding: 11.5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 /* Basket CSS */
 .basket-page {
   max-width: 800px;
