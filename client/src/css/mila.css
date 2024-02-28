@@ -43,6 +43,11 @@
     align-items: center;
 }
 
+.midnav a.active {
+    color: #ff0000;
+    border-bottom: 2px solid #ff0000;
+}
+
 .leftnav {
     display: flex;
     justify-content: flex-start;

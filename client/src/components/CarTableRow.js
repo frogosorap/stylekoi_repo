@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import BuyCar from "./BuyCar";
 import {
   ACCESS_LEVEL_GUEST,
   ACCESS_LEVEL_ADMIN,
   SERVER_HOST,
 } from "../config/global_constants";
-import BuyCar from "./BuyCar";
 
 class CarTableRow extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class CarTableRow extends Component {
     this.loadImage(this.state.currentIndex);
   }
 
-  loadImage = (index) => {
+  loadImage(index) {
     const photo = this.props.car.photos[index];
     if (photo) {
       axios
@@ -35,18 +35,18 @@ class CarTableRow extends Component {
           // Handle error
         });
     }
-  };
+  }
 
-  handlePrevClick = () => {
+  handlePrevClick() {
     this.setState(
       (prevState) => ({
         currentIndex: Math.max(prevState.currentIndex - 1, 0),
       }),
       () => this.loadImage(this.state.currentIndex)
     );
-  };
+  }
 
-  handleNextClick = () => {
+  handleNextClick() {
     this.setState(
       (prevState) => ({
         currentIndex: Math.min(
@@ -56,7 +56,7 @@ class CarTableRow extends Component {
       }),
       () => this.loadImage(this.state.currentIndex)
     );
-  };
+  }
 
   render() {
     let soldOrForSale = null;
@@ -78,7 +78,7 @@ class CarTableRow extends Component {
         <div className="itemsBox">
           {hasMultipleImages && (
             <>
-              <div className="prev" onClick={this.handlePrevClick}>
+              <div className="prev" onClick={() => this.handlePrevClick()}>
                 &lt;
               </div>
               <div className="carPhotos scrollable">
@@ -88,7 +88,7 @@ class CarTableRow extends Component {
                   alt=""
                 />
               </div>
-              <div className="next" onClick={this.handleNextClick}>
+              <div className="next" onClick={() => this.handleNextClick()}>
                 &gt;
               </div>
             </>
