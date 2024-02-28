@@ -8,17 +8,21 @@
 .basket-table {
   width: 100%;
   border-collapse: collapse;
+  border: none; /* Remove table border */
 }
 
+.basket-item img {
+  width: 130px; /* Ensures the image does not exceed its container's width */
+  height: auto; /* Allows the image's height to adjust proportionally */
+}
 
 .basket-table td {
-  border: 1px solid #ddd;
   padding: 8px;
 }
 
-
 .basket-item {
   background-color: #fff;
+  text-align: center; /* Center align content in table cells */
 }
 
 .basket-item:hover {
@@ -42,11 +46,11 @@ button {
 }
 
 button:hover {
-  background-color: #E53D1C;
+  background-color: #e53d1c;
 }
 
 button:active {
-  background-color: #E53D1C;
+  background-color: #e53d1c;
   transform: translateY(1px);
 }
 
