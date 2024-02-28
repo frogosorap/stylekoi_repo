@@ -76,10 +76,10 @@ h3 {
     transition: transform 0.8s ease-in-out;
 }
 
-.itemsBox>.carPhotos>img:hover {
+/* .itemsBox>.carPhotos>img:hover {
     opacity: 0.7;
     transition: .5s ease;
-}
+} */
 
 .itemsBox>.prev,
 .itemsBox>.next {

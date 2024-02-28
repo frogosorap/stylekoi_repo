@@ -1,9 +1,12 @@
 a {
-    text-decoration: none; /* Remove underline */
-    color: inherit; /* Inherit color from parent */
-    cursor: pointer; /* Change cursor to pointer on hover */
-  }
-  
+    text-decoration: none;
+    /* Remove underline */
+    color: inherit;
+    /* Inherit color from parent */
+    cursor: pointer;
+    /* Change cursor to pointer on hover */
+}
+
 
 .container {
     padding-top: 10px;
@@ -32,6 +35,7 @@ a {
 
 .logout {
     margin-bottom: 30px;
+    margin-top: 0;
 }
 
 /* link buttons */

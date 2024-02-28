@@ -22,8 +22,8 @@
     margin: 0;
     width: 100%;
     position: sticky;
-    top: 31.6px;
-    z-index: 2;
+    top: 29px;
+    z-index: 10;
     padding-top: 3px;
     padding-bottom: 3px;
     display: flex;
@@ -38,23 +38,25 @@
 }
 
 .midnav {
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.midnav a.active {
-    color: #ff0000;
-    border-bottom: 2px solid #ff0000;
+.navbar a:hover {
+    border-bottom: 2px solid #E53D1C;
 }
 
 .leftnav {
+    margin: 0;
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
 .rightnav {
+    margin: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
