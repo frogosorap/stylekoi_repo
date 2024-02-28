@@ -36,6 +36,7 @@ export default class MenShirts extends Component {
 
   render() {
     return (
+      /*
       <div className="form-container">
         {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
           <div className="logout">
@@ -63,7 +64,7 @@ export default class MenShirts extends Component {
             <br />
             <br />
           </div>
-        )}
+        )}*/
 
         <div className="table-container">
           <h2 style={{ textAlign: "center" }}>MEN'S COLLECTION</h2>
@@ -77,7 +78,6 @@ export default class MenShirts extends Component {
             </div>
           ) : null}
         </div>
-      </div>
     );
   }
 }

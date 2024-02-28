@@ -62,7 +62,7 @@ export default class App extends Component {
         </div>
         <div className="navbar">
           <div className="leftnav">
-            <a href="#index.html">StyleKoi</a>
+          <Link to="/DisplayAllCars">StyleKoi</Link>
           </div>
 
           <div className="midnav">
