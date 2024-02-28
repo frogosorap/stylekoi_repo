@@ -1,20 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import Modal from "../components/Modal";
-
 import axios from "axios";
-
+import BuyCar from "./BuyCar";
 import {
   ACCESS_LEVEL_GUEST,
   ACCESS_LEVEL_ADMIN,
   SERVER_HOST,
 } from "../config/global_constants";
 
-import BuyCar from "./BuyCar";
-
 class CarTableRow extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      currentIndex: 0, // Track the current index of the displayed image
+    };
+  }
+
   componentDidMount() {
-    this.props.car.photos.forEach((photo) => {
+    this.loadImage(this.state.currentIndex);
+  }
+
+  loadImage(index) {
+    const photo = this.props.car.photos[index];
+    if (photo) {
       axios
         .get(`${SERVER_HOST}/cars/photo/${photo.filename}`)
         .then((res) => {
@@ -25,7 +34,28 @@ class CarTableRow extends Component {
         .catch((err) => {
           // Handle error
         });
-    });
+    }
+  }
+
+  handlePrevClick() {
+    this.setState(
+      (prevState) => ({
+        currentIndex: Math.max(prevState.currentIndex - 1, 0),
+      }),
+      () => this.loadImage(this.state.currentIndex)
+    );
+  }
+
+  handleNextClick() {
+    this.setState(
+      (prevState) => ({
+        currentIndex: Math.min(
+          prevState.currentIndex + 1,
+          this.props.car.photos.length - 1
+        ),
+      }),
+      () => this.loadImage(this.state.currentIndex)
+    );
   }
 
   render() {
@@ -40,25 +70,49 @@ class CarTableRow extends Component {
       }
     }
 
+    const { currentIndex } = this.state;
+    const hasMultipleImages = this.props.car.photos.length > 1;
+
     return (
       <div>
-        <Link
-          to={{
-            pathname: "/CarDetailsPage",
-            state: { car: this.props.car }
-          }}
-        >
         <div className="itemsBox">
-          <div className="carPhotos">
-            {" "}
-            {this.props.car.photos.map((photo) => (
-              <img key={photo._id} id={photo._id} alt="" />
-            ))}
-          </div>
-          <div className="details">
-            <h3>{this.props.car.name}</h3>
-            <i>€{this.props.car.price}</i>
-          </div>
+          {hasMultipleImages && (
+            <>
+              <div className="prev" onClick={() => this.handlePrevClick()}>
+                &lt;
+              </div>
+              <div className="carPhotos scrollable">
+                <img
+                  key={this.props.car.photos[currentIndex]._id}
+                  id={this.props.car.photos[currentIndex]._id}
+                  alt=""
+                />
+              </div>
+              <div className="next" onClick={() => this.handleNextClick()}>
+                &gt;
+              </div>
+            </>
+          )}
+
+          {!hasMultipleImages && (
+            <div className="carPhotos">
+              {" "}
+              {this.props.car.photos.map((photo) => (
+                <img key={photo._id} id={photo._id} alt="" />
+              ))}
+            </div>
+          )}
+          <Link
+            to={{
+              pathname: "/CarDetailsPage",
+              state: { car: this.props.car },
+            }}
+          >
+            <div className="details">
+              <h3>{this.props.car.name}</h3>
+              <i>€{this.props.car.price}</i>
+            </div>
+          </Link>
           <p>
             {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
               <Link
@@ -81,11 +135,9 @@ class CarTableRow extends Component {
             {/* {soldOrForSale} */}
           </p>
         </div>
-        </Link>
       </div>
     );
   }
 }
-
 
 export default CarTableRow;
