@@ -27,11 +27,15 @@ import CarDetailsPage from "./components/CarDetailsPage"; // Import CarDetailsPa
 import BasketPage from "./components/BasketPage";
 import DisplayAllUsers from "./components/DisplayAllUsers";
 
+import DisplayAllSales from "./components/DisplayAllSales";
+
 import ProfilePicture from "./components/ProfilePicture";
 
 import DeleteUser from "./components/DeleteUser";
 
-import { ACCESS_LEVEL_GUEST,ACCESS_LEVEL_ADMIN } from "./config/global_constants";
+import DeleteSale from "./components/DeleteSale";
+
+import { ACCESS_LEVEL_GUEST,ACCESS_LEVEL_ADMIN,ACCESS_LEVEL_NORMAL_USER } from "./config/global_constants";
 
 if (typeof localStorage.accessLevel === "undefined") {
   localStorage.name = "GUEST";
@@ -44,6 +48,11 @@ export default class App extends Component {
   
   isAdmin() {
     return parseInt(localStorage.accessLevel) === ACCESS_LEVEL_ADMIN;
+  }
+
+  isNormalUserOrGuest() {
+    const accessLevel = parseInt(localStorage.accessLevel);
+    return accessLevel === ACCESS_LEVEL_NORMAL_USER || accessLevel === ACCESS_LEVEL_GUEST;
   }
 
   render() {
@@ -81,8 +90,11 @@ export default class App extends Component {
           </div>
 
           <div class="rightnav">
-            <Link to="/Login">Login</Link>
-            <Link to="/Basket">Basket</Link>
+            <Link to="/Login">LOGIN</Link>
+            {this.isNormalUserOrGuest() && <Link to="/Basket">BASKET</Link>}
+            {this.isAdmin() && <Link to="/DisplayAllSales">SALES</Link>}
+
+            
 
             {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
               <div className="logout">
@@ -135,8 +147,11 @@ export default class App extends Component {
           
           <LoggedInRoute exact path="/DeleteUser/:id" component={DeleteUser} />
 
+          <LoggedInRoute exact path="/DeleteSale/:id" component={DeleteSale} />
+
           <Route exact path="/DisplayAllUsers" component={DisplayAllUsers}/> 
           
+          <Route exact path="/DisplayAllSales" component={DisplayAllSales}/> 
           
           <Route exact path="/DisplayAllCars" component={DisplayAllCars} />
           <Route exact path="/MenShirts" component={MenShirts} />

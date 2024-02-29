@@ -1,3 +1,32 @@
+/* Sale Table */
+.sale-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.sale-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+  /* Remove table border */
+}
+
+.sale-table td,
+td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  /* Add a bottom border for separation */
+}
+
+.sale-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+  /* Light gray background for header */
+}
+
+
 /* User Table */
 .user-page {
   max-width: 800px;

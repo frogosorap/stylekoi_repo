@@ -62,7 +62,7 @@ export default class UserTable extends Component {
 
     return (
       <div className="user-page">
-        <h1>Admin Dashboard</h1>
+        <h1>USERS</h1>
         <div className="sort-options">
           <select id="sort" onChange={this.handleSort}>
             <option value="">Sort By</option>
