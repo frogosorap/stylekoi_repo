@@ -115,9 +115,11 @@ class ShirtGrid extends Component {
             {/* Filter - Size */}
             <select id="sizeFilter" onChange={this.handleSizeFilterChange}>
               <option value="">Size</option>
+              <option value="S">XS</option>
               <option value="S">S</option>
               <option value="M">M</option>
               <option value="L">L</option>
+              <option value="L">XL</option>
             </select>
 
             {/* Filter - Fabric */}
