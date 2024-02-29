@@ -267,4 +267,4 @@ router.get(`/users`, getAllUserDocuments) // Route to get all user documents
 
 router.delete(`/users/:id`, deleteUser);
 
-module.exports = router
+module.exports = router 
