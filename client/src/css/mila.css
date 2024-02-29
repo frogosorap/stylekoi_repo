@@ -7,7 +7,7 @@
     height: auto;
     position: sticky;
     top: 0vh;
-    z-index: 1;
+    z-index: 2;
 }
 
 /* .banner p {

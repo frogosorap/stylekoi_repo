@@ -23,6 +23,7 @@ h3 {
     white-space: nowrap;
     overflow: hidden;
     padding: 5px;
+    position: relative;
     z-index: 2;
 }
 
@@ -71,6 +72,10 @@ h3 {
     align-items: center;
 }
 
+img{
+    border-radius: 7px;
+}
+
 .itemsBox>.carPhotos img {
     min-width: 100%;
     min-height: 17.5em;
@@ -78,6 +83,8 @@ h3 {
     flex-shrink: 0;
     margin-right: 10px;
     transition: transform 0.8s ease-in-out;
+    position: relative;
+    z-index: -1;
 }
 
 /* .itemsBox>.carPhotos>img:hover {
@@ -93,10 +100,14 @@ h3 {
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 10px;
-    z-index: 1;
+    /* z-index: 0; */
     border-radius: 50%;
     height: 20px;
     width: 20px;
+}
+
+.itemsBox>.prev{
+    z-index: 1;
 }
 
 .product-image {
@@ -131,7 +142,7 @@ h3 {
 }
 
 .itemsBox>.next {
-    right: 0px;
+    right: 1px;
 }
 
 /* Parallax Image */

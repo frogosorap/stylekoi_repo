@@ -106,16 +106,17 @@ class CarTableRow extends Component {
           {!hasMultipleImages && (
             <div className="carPhotos">
               {" "}
-              {this.props.car.photos.map((photo) => (
-                <Link
-                  to={{
-                    pathname: "/CarDetailsPage",
-                    state: { car: this.props.car },
-                  }}
-                >
+              <Link
+                to={{
+                  pathname: "/CarDetailsPage",
+                  state: { car: this.props.car },
+                }}
+                style={{ width: "100%", display: "inline-block" }}
+              >
+                {this.props.car.photos.map((photo) => (
                   <img key={photo._id} id={photo._id} alt="" />
-                </Link>
-              ))}
+                ))}
+              </Link>
             </div>
           )}
           <Link
