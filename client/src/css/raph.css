@@ -215,7 +215,7 @@ button:active {
   
   /* Input fields */
   .forms input {
-    width: 100%;
+    width: 95%;
     padding: 15px;
     margin-bottom: 20px;
     border: 1px solid #e5e5e5;
