@@ -21,7 +21,7 @@ export default class DisplayAllUsers extends Component
     
       componentDidMount() {
         axios
-          .get(`${SERVER_HOST}/users`)
+          .get(`${SERVER_HOST}/users/all`)
           .then((res) => {
             this.setState({ users: res.data });
           })
