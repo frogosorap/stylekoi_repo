@@ -12,6 +12,7 @@ export default class UserTableRow extends Component
         const {user} = this.props;
         return (
             <tr>
+                
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.accessLevel}</td>
