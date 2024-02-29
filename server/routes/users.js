@@ -236,6 +236,6 @@ router.post(`/users/login/:email/:password`, checkThatUserExistsInUsersCollectio
 
 router.post(`/users/logout`, logout)
 
-router.get(`/users/all`, getAllUserDocuments) // Route to get all user documents
+router.get(`/users`, getAllUserDocuments) // Route to get all user documents
 
 module.exports = router
