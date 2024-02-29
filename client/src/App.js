@@ -29,6 +29,8 @@ import DisplayAllUsers from "./components/DisplayAllUsers";
 
 import ProfilePicture from "./components/ProfilePicture";
 
+import DeleteUser from "./components/DeleteUser";
+
 import { ACCESS_LEVEL_GUEST } from "./config/global_constants";
 
 if (typeof localStorage.accessLevel === "undefined") {
@@ -125,6 +127,9 @@ export default class App extends Component {
           <LoggedInRoute exact path="/AddCar" component={AddCar} />
           <LoggedInRoute exact path="/EditCar/:id" component={EditCar} />
           <LoggedInRoute exact path="/DeleteCar/:id" component={DeleteCar} />
+
+          
+          <LoggedInRoute exact path="/DeleteUser/:id" component={DeleteUser} />
 
           <Route exact path="/DisplayAllUsers" component={DisplayAllUsers}/> 
           
