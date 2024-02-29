@@ -25,6 +25,7 @@ import CarTableRow from "./components/CarTableRow"; // Import CarTableRow compon
 import CarDetailsPage from "./components/CarDetailsPage"; // Import CarDetailsPage component
 
 import BasketPage from "./components/BasketPage";
+import DisplayAllUsers from "./components/DisplayAllUsers";
 
 import ProfilePicture from "./components/ProfilePicture";
 
@@ -69,6 +70,7 @@ export default class App extends Component {
             <Link to="/DisplayAllCars">ALL SHIRTS</Link>
             <Link to="/MenShirts">MEN'S SHIRTS</Link>
             <Link to="/WomenShirts">WOMENS SHIRTS</Link>
+            <Link to="/DisplayAllUsers">Admin</Link>
             <a href="#index.html">SALE</a>
           </div>
 
@@ -123,6 +125,10 @@ export default class App extends Component {
           <LoggedInRoute exact path="/AddCar" component={AddCar} />
           <LoggedInRoute exact path="/EditCar/:id" component={EditCar} />
           <LoggedInRoute exact path="/DeleteCar/:id" component={DeleteCar} />
+
+          <Route exact path="/DisplayAllUsers" component={DisplayAllUsers}/> 
+          
+          
           <Route exact path="/DisplayAllCars" component={DisplayAllCars} />
           <Route exact path="/MenShirts" component={MenShirts} />
           <Route exact path="/WomenShirts" component={WomenShirts} />
