@@ -72,10 +72,6 @@ h3 {
     align-items: center;
 }
 
-img{
-    border-radius: 7px;
-}
-
 .itemsBox>.carPhotos img {
     min-width: 100%;
     min-height: 17.5em;
@@ -85,6 +81,7 @@ img{
     transition: transform 0.8s ease-in-out;
     position: relative;
     z-index: -1;
+    border: 0;
 }
 
 /* .itemsBox>.carPhotos>img:hover {
@@ -106,7 +103,7 @@ img{
     width: 20px;
 }
 
-.itemsBox>.prev{
+.itemsBox>.prev {
     z-index: 1;
 }
 
@@ -194,25 +191,33 @@ img{
     font-size: 16px;
     color: #333333;
     transition: border-color 0.3s ease;
-  }
-  
-  .dropdown::after {
-    content: "\25BC"; 
+}
+
+.dropdown::after {
+    content: "\25BC";
     position: absolute;
     top: 50%;
     right: 10px;
     transform: translateY(-50%);
     pointer-events: none;
-  }
-  
-  .dropdown option:checked {
+}
+
+.dropdown option:checked {
     background-color: #f0f0f0;
     color: #333;
-  }
-  
-  /* Textarea for forms */
+}
 
-  /* Add this CSS to your stylesheet */
+.main-dropdown {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #333;
+    padding: 10px; 
+    width: 200px; 
+    outline: none;
+  }
+
+/* Textarea for forms */
+
 textarea {
     width: 100%;
     padding: 10px;
@@ -222,14 +227,39 @@ textarea {
     outline: none;
     font-size: 14px;
     color: #333;
-    resize: vertical; /* Allow vertical resizing */
+    resize: vertical;
+    /* Allow vertical resizing */
     margin-bottom: 2em;
-  }
-  
-  textarea:focus {
-    border-color: #007bff; /* Change border color when focused */
-  }
-  
+}
+
+textarea:focus {
+    border-color: #007bff;
+    /* Change border color when focused */
+}
+
+/* Search box */
+
+.search-container {
+    text-align: center;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-input {
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #333;
+    padding: 15px;
+    padding-left: 28px;
+    width: 200px;
+    outline: none;
+}
 
 
 /* Responsive Queries */

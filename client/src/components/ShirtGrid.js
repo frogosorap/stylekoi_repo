@@ -84,8 +84,8 @@ class ShirtGrid extends Component {
         <div className="filter-container">
 
           {/* Sort */}
-          <div className="dropdowns">
-            <select id="sort" onChange={this.handleSort}>
+          <div className="">
+            <select id="sort" onChange={this.handleSort} className="main-dropdown">
               <option value="">Sort by</option>
               <option value="name_asc">Name A-Z</option>
               <option value="name_desc">Name Z-A</option>F
@@ -95,8 +95,8 @@ class ShirtGrid extends Component {
           </div>
 
           {/* Filter - Colour */}
-          <div className="dropdowns">
-            <select id="colourFilter" onChange={this.handleColourFilterChange}>
+          <div className="">
+            <select id="colourFilter" onChange={this.handleColourFilterChange} className="main-dropdown">
               <option value="">Colour</option>
               <option value="black">Black</option>
               <option value="white">White</option>
@@ -113,7 +113,7 @@ class ShirtGrid extends Component {
             </select>
 
             {/* Filter - Size */}
-            <select id="sizeFilter" onChange={this.handleSizeFilterChange}>
+            <select id="sizeFilter" onChange={this.handleSizeFilterChange} className="main-dropdown">
               <option value="">Size</option>
               <option value="S">XS</option>
               <option value="S">S</option>
