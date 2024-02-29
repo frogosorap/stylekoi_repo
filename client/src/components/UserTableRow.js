@@ -8,9 +8,9 @@ export default class UserTableRow extends Component
 {    
     render() 
     {
-        console.log(user.name);
-        const {user} = this.props;
         
+        const {user} = this.props;
+        console.log(user.name);
         return (
             <tr>
                 <td>{user.name}</td>
