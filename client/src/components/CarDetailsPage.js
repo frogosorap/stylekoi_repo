@@ -15,7 +15,8 @@ class CarDetailsPage extends Component {
 
   componentDidMount() {
     const { car } = this.props.location.state;
-    const filenames = car.photos.length > 0 ? car.photos.map((photo) => photo.filename) : [];
+    const filenames =
+      car.photos.length > 0 ? car.photos.map((photo) => photo.filename) : [];
 
     const imageUrls = [];
 
@@ -44,7 +45,10 @@ class CarDetailsPage extends Component {
 
   handleNextClick() {
     this.setState((prevState) => ({
-      currentIndex: Math.min(prevState.currentIndex + 1, this.state.imageUrls.length - 1),
+      currentIndex: Math.min(
+        prevState.currentIndex + 1,
+        this.state.imageUrls.length - 1
+      ),
     }));
   }
 
@@ -75,20 +79,26 @@ class CarDetailsPage extends Component {
         <div className="product-image">
           {imageUrls.length > 0 && (
             <>
+              {imageUrls.length > 1 && (
+                <div
+                  className="arrow prev"
+                  onClick={() => this.handlePrevClick()}
+                >
+                  &lt;
+                </div>
+              )}
               <img
                 id="carImage"
                 src={imageUrls[currentIndex] || "placeholder.jpg"}
                 alt="Car"
               />
               {imageUrls.length > 1 && (
-                <>
-                  <div className="prev" onClick={() => this.handlePrevClick()}>
-                    &lt;
-                  </div>
-                  <div className="next" onClick={() => this.handleNextClick()}>
-                    &gt;
-                  </div>
-                </>
+                <div
+                  className="arrow next"
+                  onClick={() => this.handleNextClick()}
+                >
+                  &gt;
+                </div>
               )}
             </>
           )}
