@@ -1,20 +1,11 @@
-.sort-dropdown {
-  margin-left: 20px; /* Adjust margin as needed */
-}
-
-.sort-dropdown label {
-  margin-right: 10px; /* Adjust margin as needed */
-}
-
-
 .filter-container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px; /* Add margin as needed */
+  margin-bottom: 20px;
 }
 
-.sort-dropdown select {
+.dropdowns select {
   padding: 11.5px;
   border: 1px solid #ccc;
   border-radius: 4px;
