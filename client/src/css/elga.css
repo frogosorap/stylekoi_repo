@@ -183,6 +183,55 @@ img{
     box-sizing: border-box;
 }
 
+/* Dropdowns for Edit and Add */
+
+.dropdown {
+    width: 102%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #333333;
+    transition: border-color 0.3s ease;
+  }
+  
+  .dropdown::after {
+    content: "\25BC"; 
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  
+  .dropdown option:checked {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  /* Textarea for forms */
+
+  /* Add this CSS to your stylesheet */
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 14px;
+    color: #333;
+    resize: vertical; /* Allow vertical resizing */
+    margin-bottom: 2em;
+  }
+  
+  textarea:focus {
+    border-color: #007bff; /* Change border color when focused */
+  }
+  
+
+
 /* Responsive Queries */
 
 @media only screen and (max-width: 1029px) {

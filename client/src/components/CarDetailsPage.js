@@ -109,6 +109,12 @@ class CarDetailsPage extends Component {
             <p>Price: €{car.price}</p>
           </div>
           <div className="product-fabric">
+            <p>Color: {car.colour}</p>
+          </div>
+          <div className="product-fabric">
+            <p>Size: {car.size}</p>
+          </div>
+          <div className="product-fabric">
             <p>Fabric: {car.fabric}</p>
           </div>
           <div className="product-description">
