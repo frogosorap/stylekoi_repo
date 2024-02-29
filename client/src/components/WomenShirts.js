@@ -36,49 +36,18 @@ export default class MenShirts extends Component {
 
   render() {
     return (
-      
-      /*
-      <div className="form-container">
-        {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
-          <div className="logout">
-            {localStorage.profilePhoto !== "null" ? (
-              <img
-                id="profilePhoto"
-                src={`data:;base64,${localStorage.profilePhoto}`}
-                alt=""
-              />
-            ) : null}
-            <Logout />
-          </div>
-        ) : (
-          <div>
-            <Link className="green-button" to={"/Login"}>
-              Login
-            </Link>
-            <Link className="blue-button" to={"/Register"}>
-              Register
-            </Link>
-            <Link className="red-button" to={"/ResetDatabase"}>
-              Reset Database
-            </Link>{" "}
-            <br />
-            <br />
-            <br />
-          </div>
-          
-        )} */
-
+    
         <div className="table-container">
           <h2 style={{ textAlign: "center" }}>WOMEN'S COLLECTION</h2>
           <ShirtGrid cars={this.state.cars} />
 
-          {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? (
+          {/* {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? (
             <div className="add-new-car">
               <Link className="blue-button" to={"/AddCar"}>
                 Add New Item
               </Link>
             </div>
-          ) : null}
+          ) : null} */}
         </div>
     );
   }

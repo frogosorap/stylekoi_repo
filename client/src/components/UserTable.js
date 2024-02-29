@@ -52,12 +52,16 @@ export default class UserTable extends Component {
 
     // Filtering users based on access level
     if (filterAccessLevel) {
-      users = users.filter(user => user.accessLevel === parseInt(filterAccessLevel));
+      users = users.filter(
+        (user) => user.accessLevel === parseInt(filterAccessLevel)
+      );
     }
 
     // Filtering users based on search query
     if (searchQuery) {
-      users = users.filter(user => user.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      users = users.filter((user) =>
+        user.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
     }
 
     return (
@@ -101,6 +105,49 @@ export default class UserTable extends Component {
             ))}
           </tbody>
         </table>
+        <div>
+          <h1>Admin Dashboard</h1>
+          <div className="admin-options">
+            <div className="sort-options">
+              <select id="sort" onChange={this.handleSort}>
+                <option value="">Sort By</option>
+                <option value="name_asc">Name A-Z</option>
+                <option value="name_desc">Name Z-A</option>
+              </select>
+            </div>
+            <div className="filter-options">
+              <select id="filter" onChange={this.handleFilter}>
+                <option value="">View All</option>
+                <option value="1">Customers</option>
+                <option value="2">Admin</option>
+              </select>
+            </div>
+          </div>
+          <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search by name..."
+              onChange={this.handleSearch}
+              value={searchQuery}
+            />
+          </div>
+          <table className="user-table">
+            <thead>
+              <tr>
+                <th>Icon</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Access Level</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {users.map((user) => (
+                <UserTableRow key={user._id} user={user} />
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
