@@ -222,7 +222,7 @@ export default class EditCar extends Component {
             <Form.Label>Description</Form.Label>
             <Form.Control
               as="textarea"
-              rows={4} 
+              rows={4}
               name="description"
               value={this.state.description}
               onChange={this.handleChange}
