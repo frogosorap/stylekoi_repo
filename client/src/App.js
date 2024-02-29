@@ -77,7 +77,7 @@ export default class App extends Component {
             <Link to="/DisplayAllCars">ALL SHIRTS</Link>
             <Link to="/MenShirts">MEN'S SHIRTS</Link>
             <Link to="/WomenShirts">WOMENS SHIRTS</Link>
-            {this.isAdmin() && <Link to="/DisplayAllUsers">ADMIN</Link>}
+            {this.isAdmin() && <Link to="/DisplayAllUsers">USERS</Link>}
           </div>
 
           <div class="rightnav">
