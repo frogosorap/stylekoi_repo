@@ -53,7 +53,7 @@ export default class AddCar extends Component
         let formData = new FormData()                  
         formData.append("name", this.state.name)
         formData.append("colour", this.state.colour)
-        formData.append("year", this.state.year)
+        formData.append("year", 2024)
         formData.append("price", this.state.price)
         formData.append("size", this.state.size)
         formData.append("gender", this.state.gender)
@@ -105,10 +105,10 @@ export default class AddCar extends Component
                         <Form.Control type="text" name="colour" value={this.state.colour} onChange={this.handleChange} />
                     </Form.Group>
     
-                    <Form.Group controlId="year">
+                    {/* <Form.Group controlId="year">
                         <Form.Label>Year</Form.Label>
                         <Form.Control type="text" name="year" value={this.state.year} onChange={this.handleChange} />
-                    </Form.Group>
+                    </Form.Group> */}
     
                     <Form.Group controlId="price">
                         <Form.Label>Price</Form.Label>
