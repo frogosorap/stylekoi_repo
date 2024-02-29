@@ -204,19 +204,19 @@ const returnUsersDetailsAsJSON = (req, res, next) =>
 }
 
 
-// const getAllUserDocuments = (req, res, next) => 
-// {   
+const getAllUserDocuments = (req, res, next) => 
+{   
     
-//     //user does not have to be logged in to see car details
-//     usersModel.find((err, data) => 
-//     {       
-//         if(err)
-//         {
-//             return next(err)
-//         }     
-//         return res.json(data)
-//     })
-// }
+    //user does not have to be logged in to see car details
+    usersModel.find((err, data) => 
+    {       
+        if(err)
+        {
+            return next(err)
+        }     
+        return res.json(data)
+    })
+}
 
 
 const logout = (req, res, next) => 
@@ -236,5 +236,6 @@ router.post(`/users/login/:email/:password`, checkThatUserExistsInUsersCollectio
 
 router.post(`/users/logout`, logout)
 
+router.get(`/users/all`, getAllUserDocuments) // Route to get all user documents
 
 module.exports = router
