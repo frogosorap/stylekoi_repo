@@ -22,6 +22,7 @@ td {
 
 .user-table th {
   background-color: #f2f2f2;
+  text-align: left;
   /* Light gray background for header */
 }
 
@@ -116,12 +117,13 @@ button:active {
 
 .basket-button {
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 15px;
+  width: 50%;
   border: none;
   background-color: black;
   color: #fff;
   border-radius: 4px;
-
+  margin-top: 0;
 }
 
 .basket-button:hover {
@@ -144,7 +146,7 @@ button:active {
   /* Center the container horizontally */
   max-width: 1200px;
   /* Limit maximum width */
-  padding: 0 20px;
+  padding: 0 50px;
   /* Add padding to the sides */
 }
 
@@ -163,6 +165,7 @@ button:active {
 /* Product info */
 .product-info {
   flex: 1;
+  margin-left: 40px;
 }
 
 .product-title {
@@ -179,6 +182,34 @@ button:active {
 
 .product-description {
   margin-bottom: 20px;
+}
+
+.product-description > p {
+  text-transform: capitalize
+}
+
+.product-description>p>p{
+  font-weight: lighter;
+}
+
+.product-fabric{
+  display: flex;
+}
+
+.product-fabric> p{
+  margin-right: 4em;
+  text-transform: capitalize;
+}
+
+/* Buy / add basket div */
+
+.buy-item{
+  display: flex;
+  align-items: flex-start;
+}
+
+.paypal-button{
+  width: 50%;
 }
 
 /* Additional details */
@@ -215,6 +246,11 @@ button:active {
     margin-right: 0;
     margin-bottom: 20px;
     /* Add space between image and product info */
+  }
+
+  .product-info{
+    margin: 0 20px;
+    width: 100%;
   }
 }
 

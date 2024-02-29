@@ -204,18 +204,26 @@ const returnUsersDetailsAsJSON = (req, res, next) =>
 }
 
 
-const getAllUserDocuments = (req, res, next) => 
-{   
-    
-    //user does not have to be logged in to see car details
-    usersModel.find((err, data) => 
-    {       
-        if(err)
-        {
-            return next(err)
-        }     
-        return res.json(data)
-    })
+const getAllUserDocuments = (req, res, next) => {
+    // user does not have to be logged in to see user details
+    usersModel.find((err, data) => {
+        if (err) {
+            return next(err);
+        }
+
+        // Convert profile photo to base64
+        const usersWithProfilePhoto = data.map(user => {
+            if (user.profilePhotoFilename) {
+                const profilePhotoPath = `${process.env.UPLOADED_FILES_FOLDER}/${user.profilePhotoFilename}`;
+                const profilePhoto = fs.readFileSync(profilePhotoPath, 'base64');
+                return { ...user.toObject(), profilePhoto };
+            } else {
+                return { ...user.toObject(), profilePhoto: null };
+            }
+        });
+
+        return res.json(usersWithProfilePhoto);
+    });
 }
 
 
@@ -234,6 +242,8 @@ const deleteUser = (req, res, next) => {
         return res.json({ message: `User with ID ${userId} has been deleted successfully` });
     });
 };
+
+
 
 
 const logout = (req, res, next) => 

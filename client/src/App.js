@@ -31,7 +31,7 @@ import ProfilePicture from "./components/ProfilePicture";
 
 import DeleteUser from "./components/DeleteUser";
 
-import { ACCESS_LEVEL_GUEST } from "./config/global_constants";
+import { ACCESS_LEVEL_GUEST,ACCESS_LEVEL_ADMIN } from "./config/global_constants";
 
 if (typeof localStorage.accessLevel === "undefined") {
   localStorage.name = "GUEST";
@@ -41,6 +41,11 @@ if (typeof localStorage.accessLevel === "undefined") {
 }
 
 export default class App extends Component {
+  
+  isAdmin() {
+    return parseInt(localStorage.accessLevel) === ACCESS_LEVEL_ADMIN;
+  }
+
   render() {
     const profilePhotoUrl =
       localStorage.profilePhoto ||
@@ -72,7 +77,7 @@ export default class App extends Component {
             <Link to="/DisplayAllCars">ALL SHIRTS</Link>
             <Link to="/MenShirts">MEN'S SHIRTS</Link>
             <Link to="/WomenShirts">WOMENS SHIRTS</Link>
-            <Link to="/DisplayAllUsers">Admin</Link>
+            {this.isAdmin() && <Link to="/DisplayAllUsers">USERS</Link>}
           </div>
 
           <div class="rightnav">
