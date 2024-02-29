@@ -76,7 +76,7 @@ export default class App extends Component {
           <div className="midnav">
             <Link to="/DisplayAllCars">ALL SHIRTS</Link>
             <Link to="/MenShirts">MEN'S SHIRTS</Link>
-            <Link to="/WomenShirts">WOMENS SHIRTS</Link>
+            <Link to="/WomenShirts">WOMEN'S SHIRTS</Link>
             {this.isAdmin() && <Link to="/DisplayAllUsers">USERS</Link>}
           </div>
 
