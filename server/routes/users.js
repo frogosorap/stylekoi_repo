@@ -219,6 +219,23 @@ const getAllUserDocuments = (req, res, next) =>
 }
 
 
+const deleteUser = (req, res, next) => {
+    const userId = req.params.id;
+
+    usersModel.findByIdAndDelete(userId, (err, data) => {
+        if (err) {
+            return next(err);
+        }
+
+        if (!data) {
+            return next(createError(404, `User not found`));
+        }
+
+        return res.json({ message: `User with ID ${userId} has been deleted successfully` });
+    });
+};
+
+
 const logout = (req, res, next) => 
 {       
     return res.json({})
@@ -237,5 +254,7 @@ router.post(`/users/login/:email/:password`, checkThatUserExistsInUsersCollectio
 router.post(`/users/logout`, logout)
 
 router.get(`/users`, getAllUserDocuments) // Route to get all user documents
+
+router.delete(`/users/:id`, deleteUser);
 
 module.exports = router
