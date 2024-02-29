@@ -7,19 +7,13 @@ export default class UserTable extends Component
     render() 
     {
         return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>AccessLevel</th>
-                    </tr>
-                </thead>
-                  
-                <tbody>
-                    {this.props.users.map((user) => <UserTableRow key={user._id} user={user}/>)}
-                </tbody>
-            </table>      
+            <div className="user-page">
+                <table className="user-table">
+                    <tbody>
+                        {this.props.users.map((user) => <UserTableRow key={user._id} user={user}/>)}
+                    </tbody>
+                </table>      
+            </div>
         )
     }
 }
