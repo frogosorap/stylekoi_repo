@@ -12,17 +12,27 @@ export default class UserTableRow extends Component
         const {user} = this.props;
         return (
             <tr>
+              <td>
+                {user.profilePhotoFilename && (
+                  <img
+                    src={`data:image/png;base64,${user.profilePhoto}`}
+                    alt="Profile"
+                    style={{ width: "50px", height: "50px", borderRadius: "50%" }}
+                  />
+                )}
+              </td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.accessLevel}</td>
-                <p>{localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? (
-              <Link
-                className="red-button"
-                to={"/DeleteUser/" + this.props.user._id}
-              >
-                Delete
-              </Link>
-            ) : null}</p>
+                <td>{localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? (
+                  <Link
+                    className="red-button"
+                    to={"/DeleteUser/" + this.props.user._id}
+                  >
+                    X
+                  </Link>
+                ) : null}
+                </td>
             </tr>
         )
     }

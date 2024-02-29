@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import axios from "axios";
-import { ACCESS_LEVEL_GUEST, SERVER_HOST } from "../config/global_constants";
+import { ACCESS_LEVEL_GUEST, ACCESS_LEVEL_NORMAL_USER, SERVER_HOST } from "../config/global_constants";
 import BuyCar from "./BuyCar";
 
 class CarDetailsPage extends Component {
