@@ -72,10 +72,6 @@ h3 {
     align-items: center;
 }
 
-img{
-    border-radius: 7px;
-}
-
 .itemsBox>.carPhotos img {
     min-width: 100%;
     min-height: 17.5em;
@@ -85,6 +81,7 @@ img{
     transition: transform 0.8s ease-in-out;
     position: relative;
     z-index: -1;
+    border: 0;
 }
 
 /* .itemsBox>.carPhotos>img:hover {
