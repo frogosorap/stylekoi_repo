@@ -51,9 +51,9 @@ export default class App extends Component {
         <div className="banner">
           <p className="marquee">
             <span>
-              Free shipping on orders over €30 &emsp;&emsp;||&emsp;&emsp; Sale:
-              50% off - Only Today!! &emsp;&emsp;||&emsp;&emsp; Buy over EUR
-              39.99, get 25% off!! &emsp;&emsp;||&emsp;&emsp; Limited Deals!
+            🚚 Free shipping on orders over €30 &emsp;||&emsp; 🏷️ Sale:
+              50% off - Only Today!! &emsp;||&emsp; 🛒 Buy over EUR
+              39.99, get 25% off!! &emsp;||&emsp; 💥 Limited Deals!
             </span>
           </p>
         </div>
