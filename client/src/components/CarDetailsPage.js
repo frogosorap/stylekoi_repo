@@ -79,7 +79,7 @@ class CarDetailsPage extends Component {
       <div>
         <BrowserRouter>
           <Link to="/DisplayAllCars" className="back-button">
-            Back??
+            Back
           </Link>
         </BrowserRouter>
         <div className="product-details-container">
