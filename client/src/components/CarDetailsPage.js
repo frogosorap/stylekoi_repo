@@ -128,7 +128,7 @@ class CarDetailsPage extends Component {
               </p>
             </div>
             <div className="buy-item">
-              {localStorage.accessLevel <= ACCESS_LEVEL_GUEST &&
+              {localStorage.accessLevel <= ACCESS_LEVEL_NORMAL_USER &&
                 (this.props.location.state.car.sold !== true ? (
                   <React.Fragment>
                     <button
