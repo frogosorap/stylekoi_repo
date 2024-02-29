@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { ACCESS_LEVEL_GUEST, SERVER_HOST } from "../config/global_constants";
+import { ACCESS_LEVEL_GUEST, ACCESS_LEVEL_NORMAL_USER, SERVER_HOST } from "../config/global_constants";
 import BuyCar from "./BuyCar";
 
 class CarDetailsPage extends Component {
@@ -121,7 +121,7 @@ class CarDetailsPage extends Component {
             <p>Description: {car.description}</p>
           </div>
           <div>
-            {localStorage.accessLevel <= ACCESS_LEVEL_GUEST &&
+            {localStorage.accessLevel <= ACCESS_LEVEL_NORMAL_USER &&
               (this.props.location.state.car.sold !== true ? (
                 <React.Fragment>
                   <button
