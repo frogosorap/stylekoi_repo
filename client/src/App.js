@@ -27,8 +27,6 @@ import CarDetailsPage from "./components/CarDetailsPage"; // Import CarDetailsPa
 import BasketPage from "./components/BasketPage";
 import DisplayAllUsers from "./components/DisplayAllUsers";
 
-import ProfilePicture from "./components/ProfilePicture";
-
 import { ACCESS_LEVEL_GUEST } from "./config/global_constants";
 
 if (typeof localStorage.accessLevel === "undefined") {
@@ -75,32 +73,9 @@ export default class App extends Component {
           </div>
 
           <div class="rightnav">
-            <Link to="/Login">Login</Link>
-            <Link to="/Basket">Basket</Link>
+            <Link to="/Basket"><i className="fas fa-shopping-cart iconstyle"></i></Link>
+            <Link to="/Login"><i className="far fa-user iconstyle"></i></Link>
 
-            {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
-              <div className="logout">
-                {localStorage.profilePhoto !== "null" && (
-                  <ProfilePicture
-                    profilePhotoUrl={`data:;base64,${localStorage.profilePhoto}`}
-                  />
-                )}
-                <Logout />
-              </div>
-            ) : (
-              <img
-                src={
-                  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVsHOtBsku-BR1Y2GbrBcLfVaUtO1GzbUbIg&usqp=CAU"
-                }
-                alt="Default Profile Pic"
-                style={{
-                  margin: "0px",
-                  borderRadius: "50%",
-                  height: "50px",
-                  width: "50px",
-                }}
-              />
-            )}
           </div>
         </div>
 
