@@ -10,4 +10,4 @@ let salesBasketSchema = new mongoose.Schema(
        collection: `salesbasket`
    });
 
-module.exports = mongoose.model(`SalesBasket`, salesBasketSchema);
+module.exports = mongoose.model(`salesBasket`, salesBasketSchema);
