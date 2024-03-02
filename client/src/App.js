@@ -27,14 +27,13 @@ import CarDetailsPage from "./components/CarDetailsPage"; // Import CarDetailsPa
 import BasketPage from "./components/BasketPage";
 import DisplayAllUsers from "./components/DisplayAllUsers";
 
-import { ACCESS_LEVEL_GUEST } from "./config/global_constants";
 import DisplayAllSales from "./components/DisplayAllSales";
-
-import ProfilePicture from "./components/ProfilePicture";
 
 import DeleteUser from "./components/DeleteUser";
 
 import DeleteSale from "./components/DeleteSale";
+
+import Profile from "./components/Profile";
 
 import { ACCESS_LEVEL_GUEST,ACCESS_LEVEL_ADMIN,ACCESS_LEVEL_NORMAL_USER } from "./config/global_constants";
 
@@ -56,11 +55,20 @@ export default class App extends Component {
     return accessLevel === ACCESS_LEVEL_NORMAL_USER || accessLevel === ACCESS_LEVEL_GUEST;
   }
 
-  render() {
-    const profilePhotoUrl =
-      localStorage.profilePhoto ||
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVsHOtBsku-BR1Y2GbrBcLfVaUtO1GzbUbIg&usqp=CAU"; // default profile pic if not logged in
+  isNormalUserOrAdmin() {
+    const accessLevel = parseInt(localStorage.accessLevel);
+    return accessLevel === ACCESS_LEVEL_NORMAL_USER || accessLevel === ACCESS_LEVEL_ADMIN;
+  }
 
+  isGuest() {
+    return parseInt(localStorage.accessLevel) === ACCESS_LEVEL_GUEST;
+  }
+
+  isNormalUser() {
+    return parseInt(localStorage.accessLevel) === ACCESS_LEVEL_NORMAL_USER;
+  }
+
+  render() {
     return (
       <BrowserRouter>
         <div className="banner">
@@ -87,18 +95,14 @@ export default class App extends Component {
             <Link to="/DisplayAllCars">ALL SHIRTS</Link>
             <Link to="/MenShirts">MEN'S SHIRTS</Link>
             <Link to="/WomenShirts">WOMEN'S SHIRTS</Link>
-            {this.isAdmin() && <Link to="/DisplayAllUsers">USERS</Link>}
           </div>
 
           <div class="rightnav">
-            <Link to="/Basket"><i className="fas fa-shopping-cart iconstyle"></i></Link>
-            <Link to="/Login"><i className="far fa-user iconstyle"></i></Link>
-            <Link to="/Login">LOGIN</Link>
-            {this.isNormalUserOrGuest() && <Link to="/Basket">BASKET</Link>}
+            {this.isGuest() && <Link to="/Login"><i class='far fa-user iconstyle'></i></Link>}
+            {this.isNormalUserOrAdmin() && <Link to="/Profile"><i class='fas fa-user iconstyle'></i></Link>}
+            {this.isNormalUserOrGuest() && <Link to="/Basket"><i class='fas fa-shopping-cart iconstyle'></i></Link>}
             {this.isAdmin() && <Link to="/DisplayAllSales">SALES</Link>}
-
-            
-
+            {this.isAdmin() && <Link to="/DisplayAllUsers">USERS</Link>}
           </div>
         </div>
 
@@ -136,6 +140,7 @@ export default class App extends Component {
           <Route exact path="/DisplayAllCars" component={DisplayAllCars} />
           <Route exact path="/MenShirts" component={MenShirts} />
           <Route exact path="/WomenShirts" component={WomenShirts} />
+          <Route exact path="/Profile" component={Profile} />
           <Route path="*" component={DisplayAllCars} />
         </Switch>
       </BrowserRouter>

@@ -35,6 +35,7 @@ export default class Login extends Component {
         localStorage.token = res.data.token;
 
         this.setState({ isLoggedIn: true });
+        window.location.reload();
       })
       .catch((err) => {
         this.setState({ wasSubmittedAtLeastOnce: true });

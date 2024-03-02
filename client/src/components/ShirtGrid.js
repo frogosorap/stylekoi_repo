@@ -10,6 +10,7 @@ class ShirtGrid extends Component {
       filterValue: "",
       colourFilter: "",
       sizeFilter: "",
+      fabricFilter: "",
       sortBy: null,
       sortOrder: "asc", // Default sorting order is ascending
     };
@@ -18,6 +19,7 @@ class ShirtGrid extends Component {
     this.handleSort = this.handleSort.bind(this);
     this.handleColourFilterChange = this.handleColourFilterChange.bind(this);
     this.handleSizeFilterChange = this.handleSizeFilterChange.bind(this);
+    this.handleFabricFilterChange = this.handleFabricFilterChange.bind(this);
   }
 
   handleFilterChange(filterValue) {
@@ -40,8 +42,13 @@ class ShirtGrid extends Component {
     this.setState({ sizeFilter });
   }
 
+  handleFabricFilterChange(event) {
+    const fabricFilter = event.target.value;
+    this.setState({ fabricFilter });
+  }
+
   render() {
-    const { filterValue, colourFilter, sizeFilter, sortBy, sortOrder } = this.state;
+    const { filterValue, colourFilter, sizeFilter, fabricFilter, sortBy, sortOrder } = this.state;
     let { cars } = this.props;
 
     // Apply filter
@@ -53,6 +60,9 @@ class ShirtGrid extends Component {
     }
     if (sizeFilter) {
       filteredCars = filteredCars.filter((car) => car.size === sizeFilter);
+    }
+    if (fabricFilter) {
+      filteredCars = filteredCars.filter((car) => car.fabric === fabricFilter);
     }
 
     // Apply sorting
@@ -123,7 +133,12 @@ class ShirtGrid extends Component {
             </select>
 
             {/* Filter - Fabric */}
-            {/* TBA */}
+            <select id="fabricFilter" onChange={this.handleFabricFilterChange} className="main-dropdown">
+              <option value="">Fabric</option>
+              <option value="cotton">Cotton</option>
+              <option value="polyester">Polyester</option>
+              <option value="silk">Silk</option>
+            </select>
           </div>
 
           <SearchFilter
