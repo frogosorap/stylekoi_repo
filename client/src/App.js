@@ -84,8 +84,8 @@ export default class App extends Component {
         </div>
         <div className="parallax">
           <div className="parallax_header">
-            <h1> Sample Text To Make Site</h1>
-            Look Cool... And something smaller here too...
+            <h1>Shop Now At StyleKoi</h1>
+            Trendy asian street style clothing
           </div>
         </div>
         <div className="navbar">
