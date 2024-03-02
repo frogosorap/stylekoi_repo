@@ -24,6 +24,7 @@ app.use(require(`cors`)({credentials: true, origin: process.env.LOCAL_HOST}))
 app.use(require(`./routes/cars`))
 app.use(require(`./routes/users`))
 app.use(require(`./routes/sales`))
+app.use(require(`./routes/salesbasket`))
 
 // Port
 app.listen(process.env.SERVER_PORT, () => 

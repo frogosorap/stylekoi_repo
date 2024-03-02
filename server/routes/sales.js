@@ -4,43 +4,35 @@ const salesModel = require(`../models/sales`)
 const carsModel = require(`../models/cars`)
 
 
-const createNewSaleDocument = (req, res, next) => 
-{           
+const createNewSaleDocument = (req, res, next) => {
     // Use the PayPal details to create a new sale document                
     let saleDetails = new Object()
-           
+
     saleDetails.paypalPaymentID = req.params.orderID
     saleDetails.carID = req.params.carID
     saleDetails.price = req.params.price
-        
-    carsModel.findByIdAndUpdate({_id:req.params.carID}, {sold: true}, (err, data) => 
-    {
-        if(err)
-        {
+
+    carsModel.findByIdAndUpdate({ _id: req.params.carID }, { sold: true }, (err, data) => {
+        if (err) {
             return next(err)
-        }  
-    }) 
-    
-    salesModel.create(saleDetails, (err, data) => 
-    {
-        if(err)
-        {
+        }
+    })
+
+    salesModel.create(saleDetails, (err, data) => {
+        if (err) {
             return next(err)
-        }                        
-    })   
-    
-    return res.json({success:true})
+        }
+    })
+
+    return res.json({ success: true })
 }
 
-const getAllSaleDocuments = (req, res, next) => 
-{   
+const getAllSaleDocuments = (req, res, next) => {
     //user does not have to be logged in to see user details
-    salesModel.find((err, data) => 
-    {       
-        if(err)
-        {
+    salesModel.find((err, data) => {
+        if (err) {
             return next(err)
-        }     
+        }
         return res.json(data)
     })
 }
