@@ -28,6 +28,15 @@ import BasketPage from "./components/BasketPage";
 import DisplayAllUsers from "./components/DisplayAllUsers";
 
 import { ACCESS_LEVEL_GUEST } from "./config/global_constants";
+import DisplayAllSales from "./components/DisplayAllSales";
+
+import ProfilePicture from "./components/ProfilePicture";
+
+import DeleteUser from "./components/DeleteUser";
+
+import DeleteSale from "./components/DeleteSale";
+
+import { ACCESS_LEVEL_GUEST,ACCESS_LEVEL_ADMIN,ACCESS_LEVEL_NORMAL_USER } from "./config/global_constants";
 
 if (typeof localStorage.accessLevel === "undefined") {
   localStorage.name = "GUEST";
@@ -37,6 +46,16 @@ if (typeof localStorage.accessLevel === "undefined") {
 }
 
 export default class App extends Component {
+  
+  isAdmin() {
+    return parseInt(localStorage.accessLevel) === ACCESS_LEVEL_ADMIN;
+  }
+
+  isNormalUserOrGuest() {
+    const accessLevel = parseInt(localStorage.accessLevel);
+    return accessLevel === ACCESS_LEVEL_NORMAL_USER || accessLevel === ACCESS_LEVEL_GUEST;
+  }
+
   render() {
     const profilePhotoUrl =
       localStorage.profilePhoto ||
@@ -47,9 +66,9 @@ export default class App extends Component {
         <div className="banner">
           <p className="marquee">
             <span>
-              Free shipping on orders over €30 &emsp;&emsp;||&emsp;&emsp; Sale:
-              50% off - Only Today!! &emsp;&emsp;||&emsp;&emsp; Buy over EUR
-              39.99, get 25% off!! &emsp;&emsp;||&emsp;&emsp; Limited Deals!
+            🚚 Free shipping on orders over €30 &emsp;||&emsp; 🏷️ Sale:
+              50% off - Only Today!! &emsp;||&emsp; 🛒 Buy over EUR
+              39.99, get 25% off!! &emsp;||&emsp; 💥 Limited Deals!
             </span>
           </p>
         </div>
@@ -67,14 +86,18 @@ export default class App extends Component {
           <div className="midnav">
             <Link to="/DisplayAllCars">ALL SHIRTS</Link>
             <Link to="/MenShirts">MEN'S SHIRTS</Link>
-            <Link to="/WomenShirts">WOMENS SHIRTS</Link>
-            <Link to="/DisplayAllUsers">Admin</Link>
-            <a href="#index.html">SALE</a>
+            <Link to="/WomenShirts">WOMEN'S SHIRTS</Link>
+            {this.isAdmin() && <Link to="/DisplayAllUsers">USERS</Link>}
           </div>
 
           <div class="rightnav">
             <Link to="/Basket"><i className="fas fa-shopping-cart iconstyle"></i></Link>
             <Link to="/Login"><i className="far fa-user iconstyle"></i></Link>
+            <Link to="/Login">LOGIN</Link>
+            {this.isNormalUserOrGuest() && <Link to="/Basket">BASKET</Link>}
+            {this.isAdmin() && <Link to="/DisplayAllSales">SALES</Link>}
+
+            
 
           </div>
         </div>
@@ -101,8 +124,14 @@ export default class App extends Component {
           <LoggedInRoute exact path="/EditCar/:id" component={EditCar} />
           <LoggedInRoute exact path="/DeleteCar/:id" component={DeleteCar} />
 
+          
+          <LoggedInRoute exact path="/DeleteUser/:id" component={DeleteUser} />
+
+          <LoggedInRoute exact path="/DeleteSale/:id" component={DeleteSale} />
+
           <Route exact path="/DisplayAllUsers" component={DisplayAllUsers}/> 
           
+          <Route exact path="/DisplayAllSales" component={DisplayAllSales}/> 
           
           <Route exact path="/DisplayAllCars" component={DisplayAllCars} />
           <Route exact path="/MenShirts" component={MenShirts} />

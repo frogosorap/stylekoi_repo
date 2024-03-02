@@ -13,7 +13,7 @@ function handleScroll() {
     if (scroll > 550) {
       element.style.transition = "background-color 0.6s, color 0.6s";
       element.style.background = "#E53D1C";
-      element.style.borderBottom = "0";
+      element.style.borderBottom = "2px solid transparent";
       element.style.color = "#000";
       elementLinks.forEach((link) => {
         link.addEventListener("mouseenter", () => {

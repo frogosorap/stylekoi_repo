@@ -1,6 +1,7 @@
 import React, { Component } from "react";
+import { BrowserRouter, Link } from "react-router-dom";
 import axios from "axios";
-import { ACCESS_LEVEL_GUEST, SERVER_HOST } from "../config/global_constants";
+import { ACCESS_LEVEL_GUEST, ACCESS_LEVEL_NORMAL_USER, SERVER_HOST } from "../config/global_constants";
 import BuyCar from "./BuyCar";
 
 class CarDetailsPage extends Component {
@@ -75,69 +76,76 @@ class CarDetailsPage extends Component {
     const { currentIndex, imageUrls } = this.state;
 
     return (
-      <div className="product-details-container">
-        <div className="product-image">
-          {imageUrls.length > 0 && (
-            <>
-              {imageUrls.length > 1 && (
-                <div
-                  className="arrow prev"
-                  onClick={() => this.handlePrevClick()}
-                >
-                  &lt;
-                </div>
-              )}
-              <img
-                id="carImage"
-                src={imageUrls[currentIndex] || "placeholder.jpg"}
-                alt="Car"
-              />
-              {imageUrls.length > 1 && (
-                <div
-                  className="arrow next"
-                  onClick={() => this.handleNextClick()}
-                >
-                  &gt;
-                </div>
-              )}
-            </>
-          )}
-        </div>
-        <div className="product-info">
-          <h1 className="product-title">{car.name}</h1>
-          <div className="product-price">
-            <p>Price: €{car.price}</p>
-          </div>
-          <div className="product-fabric">
-            <p>Color: {car.colour}</p>
-          </div>
-          <div className="product-fabric">
-            <p>Size: {car.size}</p>
-          </div>
-          <div className="product-fabric">
-            <p>Fabric: {car.fabric}</p>
-          </div>
-          <div className="product-description">
-            <p>Description: {car.description}</p>
-          </div>
-          <div>
-            {localStorage.accessLevel <= ACCESS_LEVEL_GUEST &&
-              (this.props.location.state.car.sold !== true ? (
-                <React.Fragment>
-                  <button
-                    className="basket-button"
-                    onClick={() => this.addToBasket()}
+      <div>
+        <BrowserRouter>
+          <Link to="/DisplayAllCars" className="back-button">
+            Back
+          </Link>
+        </BrowserRouter>
+        <div className="product-details-container">
+          <div className="product-image">
+            {imageUrls.length > 0 && (
+              <>
+                {imageUrls.length > 1 && (
+                  <div
+                    className="arrow prev"
+                    onClick={() => this.handlePrevClick()}
                   >
-                    Add to Basket
-                  </button>
-                  <BuyCar
-                    carID={this.props.location.state.car._id}
-                    price={this.props.location.state.car.price}
-                  />
-                </React.Fragment>
-              ) : (
-                "SOLD"
-              ))}
+                    &lt;
+                  </div>
+                )}
+                <img
+                  id="carImage"
+                  src={imageUrls[currentIndex] || "placeholder.jpg"}
+                  alt="Car"
+                />
+                {imageUrls.length > 1 && (
+                  <div
+                    className="arrow next"
+                    onClick={() => this.handleNextClick()}
+                  >
+                    &gt;
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+          <div className="product-info">
+            <h1 className="product-title">{car.name}</h1>
+            <div className="product-price">
+              <p>€{car.price}</p>
+              {/* <p>Price: €{car.price}</p> */}
+            </div>
+            <div className="product-fabric">
+              <p>Color: {car.colour}</p>
+              <p>Size: {car.size}</p>
+              <p>Fabric: {car.fabric}</p>
+            </div>
+            <div className="product-description">
+              <p>
+                Description: <br /> <p>{car.description}</p>
+                <br />
+              </p>
+            </div>
+            <div className="buy-item">
+              {localStorage.accessLevel <= ACCESS_LEVEL_NORMAL_USER &&
+                (this.props.location.state.car.sold !== true ? (
+                  <React.Fragment>
+                    <button
+                      className="basket-button"
+                      onClick={() => this.addToBasket()}
+                    >
+                      Add to Basket
+                    </button>
+                    <BuyCar
+                      carID={this.props.location.state.car._id}
+                      price={this.props.location.state.car.price}
+                    />
+                  </React.Fragment>
+                ) : (
+                  "SOLD"
+                ))}
+            </div>
           </div>
         </div>
       </div>

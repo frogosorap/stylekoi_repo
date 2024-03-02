@@ -131,7 +131,7 @@ class CarTableRow extends Component {
             </div>
           </Link>
           <p>
-            {localStorage.accessLevel > ACCESS_LEVEL_GUEST ? (
+            {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? (
               <Link
                 className="green-button"
                 to={"/EditCar/" + this.props.car._id}

@@ -1,18 +1,18 @@
-/* User Table */
-.user-page {
+/* Sale Table */
+.sale-page {
   max-width: 800px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.user-table {
+.sale-table {
   width: 100%;
   border-collapse: collapse;
   border: none;
   /* Remove table border */
 }
 
-.user-table td,
+.sale-table td,
 td {
   padding: 8px;
   text-align: left;
@@ -20,37 +20,121 @@ td {
   /* Add a bottom border for separation */
 }
 
-.user-table th {
+.sale-table th {
   background-color: #f2f2f2;
+  text-align: left;
   /* Light gray background for header */
 }
 
 
-.sort-dropdown {
-  margin-left: 20px;
-  /* Adjust margin as needed */
-}
+/* User Table */
 
-.sort-dropdown label {
-  margin-right: 10px;
-  /* Adjust margin as needed */
-}
-
-
+/* DO NOT CHANGE, CONNECTED TO MAIN PAGE SORT/FILTER STYLES */
 .filter-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
 }
+/* ---------------------------------------------------------- */
 
-.dropdowns select {
-  padding: 11.5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  background-color: white;
-  font-size: 14px;
+.user-page {
+  width: 800px;
+  margin: 4em auto;
+  padding: 20px;
+  background-color: #fefefe;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-page>div {
+  width: 95%;
+  margin: 0 auto;
+}
+
+.user-page h1 {
+  color: #343a40;
+  margin: 0;
+  margin-bottom: 25px;
+}
+
+.sort-options,
+.filter-options,
+.search-bar {
+  margin-bottom: 15px;
+}
+
+.admin-options {
+  display: flex;
+}
+
+.sort-options,
+.filter-options {
+  flex: 1;
+  margin-right: 10px;
+  width: 100%;
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  outline: none;
+}
+
+
+select,
+input[type="text"] {
+  width: 97%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  outline: none;
+}
+
+select {
+  width: 50%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-weight: normal;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+th {
+  background-color: #dedede;
+  color: #fff;
+}
+
+tbody tr:hover {
+  background-color: #dedede;
+  transition: background-color 0.4s ease;
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
 }
 
 /* Basket CSS */
@@ -116,12 +200,13 @@ button:active {
 
 .basket-button {
   cursor: pointer;
-  padding: 8px 12px;
+  padding: 15px;
+  width: 50%;
   border: none;
   background-color: black;
   color: #fff;
   border-radius: 4px;
-
+  margin-top: 0;
 }
 
 .basket-button:hover {
@@ -144,7 +229,7 @@ button:active {
   /* Center the container horizontally */
   max-width: 1200px;
   /* Limit maximum width */
-  padding: 0 20px;
+  padding: 0 50px;
   /* Add padding to the sides */
 }
 
@@ -163,6 +248,7 @@ button:active {
 /* Product info */
 .product-info {
   flex: 1;
+  margin-left: 40px;
 }
 
 .product-title {
@@ -179,6 +265,34 @@ button:active {
 
 .product-description {
   margin-bottom: 20px;
+}
+
+.product-description > p {
+  text-transform: capitalize
+}
+
+.product-description>p>p{
+  font-weight: lighter;
+}
+
+.product-fabric{
+  display: flex;
+}
+
+.product-fabric> p{
+  margin-right: 4em;
+  text-transform: capitalize;
+}
+
+/* Buy / add basket div */
+
+.buy-item{
+  display: flex;
+  align-items: flex-start;
+}
+
+.paypal-button{
+  width: 50%;
 }
 
 /* Additional details */
@@ -215,6 +329,11 @@ button:active {
     margin-right: 0;
     margin-bottom: 20px;
     /* Add space between image and product info */
+  }
+
+  .product-info{
+    margin: 0 20px;
+    width: 100%;
   }
 }
 
