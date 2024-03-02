@@ -35,6 +35,8 @@ import DeleteSale from "./components/DeleteSale";
 
 import Profile from "./components/Profile";
 
+import Dashboard from "./components/Dashboard"; 
+
 import { ACCESS_LEVEL_GUEST,ACCESS_LEVEL_ADMIN,ACCESS_LEVEL_NORMAL_USER } from "./config/global_constants";
 
 if (typeof localStorage.accessLevel === "undefined") {
@@ -95,6 +97,7 @@ export default class App extends Component {
             <Link to="/DisplayAllCars">ALL SHIRTS</Link>
             <Link to="/MenShirts">MEN'S SHIRTS</Link>
             <Link to="/WomenShirts">WOMEN'S SHIRTS</Link>
+            <Link to="/Dashboard">Dashboard</Link>
           </div>
 
           <div class="rightnav">
@@ -137,6 +140,8 @@ export default class App extends Component {
           
           <Route exact path="/DisplayAllSales" component={DisplayAllSales}/> 
           
+          <Route exact path="/Dashboard" component={Dashboard} />
+
           <Route exact path="/DisplayAllCars" component={DisplayAllCars} />
           <Route exact path="/MenShirts" component={MenShirts} />
           <Route exact path="/WomenShirts" component={WomenShirts} />
