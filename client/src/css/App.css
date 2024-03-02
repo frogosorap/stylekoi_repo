@@ -154,8 +154,18 @@ input [type="button"] {
 
 #payPalPaymentIDButton {
     margin-top: 50px;
+    width: 100px;
 }
 
 #payPalPaymentID {
     font-weight: bold;
+}
+
+.fa-truck {
+    transform: scaleX(-1);
+    font-size: 14px;
+}
+
+.navicon {
+    font-size: 14px;
 }

@@ -76,16 +76,14 @@ export default class App extends Component {
         <div className="banner">
           <p className="marquee">
             <span>
-            🚚 Free shipping on orders over €30 &emsp;||&emsp; 🏷️ Sale:
-              50% off - Only Today!! &emsp;||&emsp; 🛒 Buy over EUR
-              39.99, get 25% off!! &emsp;||&emsp; 💥 Limited Deals!
+            <i class="fa fa-truck navicon"></i>&emsp;Free shipping on orders over €30 &emsp;||&emsp; <i class="fas fa-tags navicon"></i>&emsp;Sale: 50% off - Only Today!! &emsp;||&emsp; <i class="	fab fa-cc-paypal navicon"></i>&emsp;Shop in confidence with PayPal
             </span>
           </p>
         </div>
         <div className="parallax">
           <div className="parallax_header">
             <h1>Shop Now At StyleKoi</h1>
-            Trendy asian street style clothing
+            <h3>Trendy asian street style clothing</h3>
           </div>
         </div>
         <div className="navbar">
