@@ -37,47 +37,34 @@ a {
 .red-button,
 .blue-button {
     padding: 7px 10px;
-    font-size: 0.875rem;
+    font-size: 1rem;
     line-height: normal;
     border-radius: 0.2rem;
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
     margin-right: 10px;
     position: relative;
     text-decoration: none;
     cursor: pointer;
-}
-
-.green-button {
-    background-color: #28a745;
-}
-
-.red-button {
-    background-color: #dc3545;
-}
-
-.blue-button {
-    background-color: #3545dc;
+    color: black;
 }
 
 .green-button:hover,
 .red-button:hover,
 .blue-button:hover {
     text-decoration: none;
-    color: #fff;
+    transition: 0.4s;
 }
 
 .green-button:hover {
-    background-color: #107020;
+    color: #28a745;
 }
 
 .red-button:hover {
-    background-color: #a01020;
+    color: #dc3545;
 }
 
 .blue-button:hover {
-    background-color: #1020a0;
+    color: #3545dc;
 }
 
 /* end of link buttons */
@@ -88,6 +75,7 @@ input [type="button"] {
 
 .add-new-car {
     margin-top: 1em;
+    float: right;
 }
 
 .carPhotos img {

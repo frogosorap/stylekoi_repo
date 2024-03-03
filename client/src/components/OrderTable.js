@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import SaleTableRow from "./SaleTableRow";
+import OrderTableRow from "./OrderTableRow";
 
-export default class SaleTable extends Component {
+export default class OrderTable extends Component {
   
     constructor(props) {
         super(props);
@@ -11,6 +11,7 @@ export default class SaleTable extends Component {
           sortOrder: "asc", // Default sorting order is ascending
           filterAccessLevel: "", // Default filter is empty
           searchQuery: "", // Default search query is empty
+          userEmail: localStorage.getItem("orderEmail") || "" // Get logged-in user's email
         };
     
         this.handleSort = this.handleSort.bind(this);
@@ -36,10 +37,13 @@ export default class SaleTable extends Component {
 
 
   render() {
-    const { sortBy, sortOrder, filterAccessLevel, searchQuery } = this.state;
+    const { sortBy, sortOrder, filterAccessLevel, searchQuery, userEmail } = this.state;
     let { sales } = this.props;
 
-   // Sorting sales based on the selected sorting order and criteria
+    // Filter sales based on the logged-in user's email
+    sales = sales.filter(sale => sale.orderEmail === userEmail);
+  
+    // Sorting sales based on the selected sorting order and criteria
     if (sortBy === 'price') {
         sales.sort((a, b) => {
         let comparison = 0;
@@ -51,12 +55,7 @@ export default class SaleTable extends Component {
         return sortOrder === "asc" ? comparison : comparison * -1;
         });
     }
-  
-      // Filtering sales based on access level
-      if (filterAccessLevel) {
-        sales = sales.filter(sale => sale.accessLevel === parseInt(filterAccessLevel));
-      }
-  
+    
     // Filtering sales based on search query (PayPal ID)
     if (searchQuery) {
         sales = sales.filter(sale => sale.paypalPaymentID.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -64,12 +63,18 @@ export default class SaleTable extends Component {
     
     return (
       <div className="sale-page">
-        <h1>SALES</h1>
         <select id="sort" onChange={this.handleSort}>
             <option value="">Sort By</option>
             <option value="price_asc">Price Low-High</option>
             <option value="price_desc">Price High-Low</option>
         </select>
+        {/* <div className="filter-options">
+          <select id="filter" onChange={this.handleFilter}>
+            <option value="">View All</option>
+            <option value="1">Customers</option>
+            <option value="2">Admin</option>
+          </select>
+        </div> */}
         <div className="search-bar">
             <input
             type="text"
@@ -81,17 +86,13 @@ export default class SaleTable extends Component {
         <table className="sale-table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>PayPal ID</th>
-              <th>Email</th>
               <th>Shirt ID</th>
               <th>Price</th>
-              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             {sales.map((sale) => (
-              <SaleTableRow key={sale._id} sale={sale} />
+              <OrderTableRow key={sale._id} sale={sale} />
             ))}
           </tbody>
         </table>

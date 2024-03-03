@@ -74,7 +74,7 @@ export default class App extends Component {
         <div className="banner">
           <p className="marquee">
             <span>
-            <i class="fa fa-truck navicon"></i>&emsp;Free shipping on orders over €30 &emsp;||&emsp; <i class="fas fa-tags navicon"></i>&emsp;Sale: 50% off - Only Today!! &emsp;||&emsp; <i class="	fab fa-cc-paypal navicon"></i>&emsp;Shop in confidence with PayPal
+            <i class="fa fa-truck navicon"></i>&emsp;Free shipping on orders over €30 &emsp;||&emsp; <i class="fas fa-tags navicon"></i>&emsp;Sale: 50% off - Only Today! &emsp;||&emsp; <i class="	fab fa-cc-paypal navicon"></i>&emsp;Shop in confidence with PayPal
             </span>
           </p>
         </div>
@@ -99,8 +99,8 @@ export default class App extends Component {
             {this.isGuest() && <Link to="/Login"><i class='far fa-user iconstyle'></i></Link>}
             {this.isNormalUserOrAdmin() && <Link to="/Profile"><i class='fas fa-user iconstyle'></i></Link>}
             {this.isNormalUserOrGuest() && <Link to="/Basket"><i class='fas fa-shopping-cart iconstyle'></i></Link>}
-            {this.isAdmin() && <Link to="/DisplayAllSales">SALES</Link>}
-            {this.isAdmin() && <Link to="/DisplayAllUsers">USERS</Link>}
+            {this.isAdmin() && <Link to="/DisplayAllSales"><i class='fas fa-chart-line iconstyle'></i></Link>}
+            {this.isAdmin() && <Link to="/DisplayAllUsers"><i class='fas fa-users-cog iconstyle'></i></Link>}
           </div>
         </div>
 
