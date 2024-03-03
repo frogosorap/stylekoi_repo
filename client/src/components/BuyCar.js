@@ -18,12 +18,38 @@ export default class BuyCar extends Component {
     }
 
     createOrder = (data, actions) => {
-        return actions.order.create({ purchase_units: [{ amount: { value: this.props.price } }] })
+        // Extract form details from localStorage
+        const orderName = localStorage.getItem("orderName");
+        const orderEmail = localStorage.getItem("orderEmail");
+        const address = localStorage.getItem("address");
+        const phone = localStorage.getItem("phone");
+    
+        // Prepare data to be sent to the server
+        const formData = new FormData();
+        formData.append("orderName", orderName);
+        formData.append("orderEmail", orderEmail);
+        formData.append("address", address);
+        formData.append("phone", phone);
+    
+        // Create the order with item details and form details
+        return actions.order.create({
+            purchase_units: [{
+                amount: { value: this.props.price },
+                // Include form details in the custom_id field or any other field
+                custom_id: JSON.stringify({ orderName, orderEmail, address, phone })
+            }]
+        });
     }
 
-    onApprove = paymentData => {
+    onApprove = (paymentData) => {
+        const formData = {
+            orderName: localStorage.getItem("orderName"),
+            orderEmail: localStorage.getItem("orderEmail"),
+            address: localStorage.getItem("address"),
+            phone: localStorage.getItem("phone")
+        };
         axios.post(
-            `${SERVER_HOST}/sales/${paymentData.orderID}/${this.props.carID}/${this.props.price}`, { headers: { "authorization": localStorage.token, "Content-type": "multipart/form-data" } })
+            `${SERVER_HOST}/sales/${paymentData.orderID}/${this.props.carID}/${this.props.price}`,formData, { headers: { "authorization": localStorage.token, "Content-type": "multipart/form-data" } })
             .then(res => {
                 this.setState({
                     payPalMessageType: PayPalMessage.messageType.SUCCESS,

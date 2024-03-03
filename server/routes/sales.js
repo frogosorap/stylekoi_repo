@@ -5,27 +5,33 @@ const carsModel = require(`../models/cars`)
 
 
 const createNewSaleDocument = (req, res, next) => {
-    // Use the PayPal details to create a new sale document                
-    let saleDetails = new Object()
+    const { orderID, carID, price } = req.params;
 
-    saleDetails.paypalPaymentID = req.params.orderID
-    saleDetails.carID = req.params.carID
-    saleDetails.price = req.params.price
+    const { orderName, orderEmail, address, phone } = req.body;
 
-    carsModel.findByIdAndUpdate({ _id: req.params.carID }, { sold: true }, (err, data) => {
+    const saleDetails = {
+        paypalPaymentID: orderID,
+        carID,
+        price,
+        orderName,
+        orderEmail,
+        address,
+        phone
+    };
+
+    carsModel.findByIdAndUpdate({ _id: carID }, { sold: true }, (err, data) => {
         if (err) {
-            return next(err)
+            return next(err);
         }
-    })
+    });
 
     salesModel.create(saleDetails, (err, data) => {
         if (err) {
-            return next(err)
+            return next(err);
         }
-    })
-
-    return res.json({ success: true })
-}
+        return res.json({ success: true });
+    });
+};
 
 const getAllSaleDocuments = (req, res, next) => {
     //user does not have to be logged in to see user details
