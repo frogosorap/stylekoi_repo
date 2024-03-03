@@ -55,13 +55,6 @@ a {
     transition: 0.4s;
 }
 
-.green-button:hover {
-    color: #28a745;
-}
-
-.red-button:hover {
-    color: #dc3545;
-}
 
 .blue-button:hover {
     color: #3545dc;
@@ -516,15 +509,12 @@ textarea:focus {
     padding: 5px 12px;
     font-size: 16px;
     text-decoration: none;
-    background-color: #E53D1C;
-    border: 1px solid #eee;
     margin-top: 20px;
     margin-left: 50px;
     transition: background-color 0.3s, color 0.3s;
 
     &:hover {
-        background-color: #ef5a3d;
-        color: #fff;
+        color: #ef5a3d;
     }
 }
 
@@ -1004,7 +994,8 @@ footer .links a:hover {
     font-size: 16px;
     padding: 14px;
     margin-right: 10px;
-    background-color: #28a745;
+    background-color: #000;
+    color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -1012,7 +1003,7 @@ footer .links a:hover {
 }
 
 .basket-button:hover {
-    background-color: #218838;
+    background-color: #333;
 }
 
 
@@ -1139,4 +1130,21 @@ footer .links a:hover {
 .forms .error {
     color: #dc3545;
     margin-bottom: 20px;
+}
+
+.profileForm {
+    max-width: 450px;
+}
+
+.profileForm>div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileForm input {
+    width: 80%;
+}
+
+.profileForm button{
+    color: #000;
 }

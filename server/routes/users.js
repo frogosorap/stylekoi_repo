@@ -244,6 +244,12 @@ const deleteUser = (req, res, next) => {
 };
 
 
+const getUserEmail = (req, res, next) => {
+    const token = req.headers.authorization.split(' ')[1]; // Extract JWT token from Authorization header
+    const decodedToken = jwt.verify(token, JWT_PRIVATE_KEY); // Verify and decode the token
+    const userEmail = decodedToken.email; // Extract email from decoded token
+    return res.json({ email: userEmail });
+};
 
 
 const logout = (req, res, next) => 
@@ -264,6 +270,8 @@ router.post(`/users/login/:email/:password`, checkThatUserExistsInUsersCollectio
 router.post(`/users/logout`, logout)
 
 router.get(`/users`, getAllUserDocuments) // Route to get all user documents
+
+router.get('/users/email', getUserEmail);
 
 router.delete(`/users/:id`, deleteUser);
 

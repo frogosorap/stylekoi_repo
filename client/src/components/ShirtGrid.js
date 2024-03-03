@@ -95,7 +95,7 @@ class ShirtGrid extends Component {
 
           {/* Sort */}
           <div className="">
-            <select id="sort" onChange={this.handleSort} className="main-dropdown">
+            <select id="sort-shirt" onChange={this.handleSort} className="main-dropdown">
               <option value="">Sort by</option>
               <option value="name_asc">Name A-Z</option>
               <option value="name_desc">Name Z-A</option>F
