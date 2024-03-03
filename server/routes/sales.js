@@ -6,6 +6,7 @@ const carsModel = require(`../models/cars`)
 
 const createNewSaleDocument = (req, res, next) => {
     const { orderID, carID, price } = req.params;
+
     const { orderName, orderEmail, address, phone } = req.body;
 
     const saleDetails = {
@@ -31,7 +32,6 @@ const createNewSaleDocument = (req, res, next) => {
         return res.json({ success: true });
     });
 };
-
 
 const getAllSaleDocuments = (req, res, next) => {
     //user does not have to be logged in to see user details
