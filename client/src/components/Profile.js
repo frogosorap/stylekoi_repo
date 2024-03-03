@@ -29,29 +29,46 @@ export default class Profile extends Component {
       }
 
     componentDidMount() {
-        axios
-            .get(`${SERVER_HOST}/sales`)
-            .then((res) => {
-                this.setState({ sales: res.data });
-            })
-            .catch((err) => {
-                // do nothing
-            });
-
         if (!localStorage.getItem("token")) {
             this.setState({ isLoggedIn: false });
+        } else {
+            axios
+                .get(`${SERVER_HOST}/users/email`, {
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
+            .then((res) => {
+                const orderEmail = res.data.email || localStorage.getItem("orderEmail") || "";
+                this.setState({ orderEmail });
+                this.fetchSales();
+            })
+            .catch((err) => {
+                // Handle error
+            });
         }
 
         const profilePhotoUrl = localStorage.getItem("profilePhoto");
         const name = localStorage.getItem("name");
         const orderName = localStorage.getItem("name") || "";
-        const orderEmail = localStorage.getItem("orderEmail") || "";
         const address = localStorage.getItem("address") || "";
         const phone = localStorage.getItem("phone") || "";
         const accessLevel = localStorage.getItem("accessLevel") || ACCESS_LEVEL_NORMAL_USER;
 
-        this.setState({ profilePhotoUrl, name, orderName, orderEmail, address, phone, accessLevel });
-        console.log(accessLevel);
+        this.setState({ profilePhotoUrl, name, orderName, address, phone, accessLevel });
+    }
+
+    fetchSales() {
+        // Fetch sales using the updated email
+        axios
+            .get(`${SERVER_HOST}/sales`, {
+                params: { orderEmail: this.state.orderEmail },
+                headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+            })
+            .then((res) => {
+                this.setState({ sales: res.data });
+            })
+            .catch((err) => {
+                // Handle error
+            });
     }
 
     handleLogout = () => {

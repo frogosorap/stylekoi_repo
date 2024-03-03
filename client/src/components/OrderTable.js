@@ -11,12 +11,14 @@ export default class OrderTable extends Component {
           sortOrder: "asc", // Default sorting order is ascending
           filterAccessLevel: "", // Default filter is empty
           searchQuery: "", // Default search query is empty
+          priceFilter: "", // Default price filter is empty
           userEmail: localStorage.getItem("orderEmail") || "" // Get logged-in user's email
         };
     
         this.handleSort = this.handleSort.bind(this);
         this.handleFilter = this.handleFilter.bind(this);
         this.handleSearch = this.handleSearch.bind(this);
+        this.handlePriceFilter = this.handlePriceFilter.bind(this);
       }
     
       handleSort(event) {
@@ -35,9 +37,14 @@ export default class OrderTable extends Component {
         this.setState({ searchQuery });
       }
 
+      handlePriceFilter(event) {
+        const priceFilter = event.target.value;
+        this.setState({ priceFilter });
+      }
+
 
   render() {
-    const { sortBy, sortOrder, filterAccessLevel, searchQuery, userEmail } = this.state;
+    const { sortBy, sortOrder, filterAccessLevel, searchQuery, priceFilter, userEmail } = this.state;
     let { sales } = this.props;
 
     // Filter sales based on the logged-in user's email
@@ -60,6 +67,15 @@ export default class OrderTable extends Component {
     if (searchQuery) {
         sales = sales.filter(sale => sale.paypalPaymentID.toLowerCase().includes(searchQuery.toLowerCase()));
     }
+
+    // Filtering sales based on price filter
+    if (priceFilter === "below_20") {
+        sales = sales.filter(sale => sale.price < 20);
+    } else if (priceFilter === "below_40") {
+        sales = sales.filter(sale => sale.price >= 20 && sale.price < 40);
+    } else if (priceFilter === "above_40") {
+        sales = sales.filter(sale => sale.price >= 40);
+    }
     
     return (
       <div className="sale-page">
@@ -67,6 +83,12 @@ export default class OrderTable extends Component {
             <option value="">Sort By</option>
             <option value="price_asc">Price Low-High</option>
             <option value="price_desc">Price High-Low</option>
+        </select>
+        <select id="priceFilter" onChange={this.handlePriceFilter}>
+            <option value="">Filter By Price</option>
+            <option value="below_20">0-20</option>
+            <option value="below_40">20-40</option>
+            <option value="above_40">40+</option>
         </select>
         {/* <div className="filter-options">
           <select id="filter" onChange={this.handleFilter}>
