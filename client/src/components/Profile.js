@@ -98,7 +98,7 @@ export default class Profile extends Component {
                     {this.isNormalUser() && (
                         <div>
                             <h2>Your checkout details</h2>
-                            <form className="profileform" onSubmit={this.handleSubmit}>
+                            <form className="forms profileForm" onSubmit={this.handleSubmit}>
                                 <div>
                                     <label>Name: </label>
                                     <input
