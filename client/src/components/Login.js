@@ -18,7 +18,13 @@ export default class Login extends Component {
       orderName: localStorage.getItem("orderName") || "",
       orderEmail: localStorage.getItem("orderEmail") || "",
       address: localStorage.getItem("address") || "",
-      phone: localStorage.getItem("phone") || ""
+      phone: localStorage.getItem("phone") || "",
+      errors: {
+        orderName: "",
+        orderEmail: "",
+        address: "",
+        phone: ""
+      }
     };
   }
 
@@ -47,6 +53,15 @@ export default class Login extends Component {
 
   handleProfileSubmit = (e) => {
     e.preventDefault();
+
+    // Perform validation
+    const errors = this.validateForm();
+    if (Object.keys(errors).some((key) => errors[key])) {
+      this.setState({ errors });
+      return;
+    }
+
+    // Save profile if form is validated
     localStorage.setItem("orderName", this.state.orderName);
     localStorage.setItem("orderEmail", this.state.orderEmail);
     localStorage.setItem("address", this.state.address);
@@ -54,16 +69,52 @@ export default class Login extends Component {
     alert("Profile Updated Successfully");
   };
 
+  validateForm = () => {
+    // Validation logic
+    const errors = {
+      orderName: "",
+      orderEmail: "",
+      address: "",
+      phone: ""
+    };
+
+    // Name validation
+    if (this.state.orderName.length <= 1) {
+      errors.orderName = "Name should be longer than 1 character";
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(this.state.orderEmail)) {
+      errors.orderEmail = "Email should follow the email format";
+    }
+
+    // Address validation
+    if (this.state.address.length <= 10) {
+      errors.address = "Address should be longer than 10 characters";
+    }
+
+    // Phone validation
+    const phoneRegex = /^\d{10}$/; // Irish phone number format
+    if (!phoneRegex.test(this.state.phone)) {
+      errors.phone = "Phone should be in the form of an Irish number (10 digits)";
+    }
+
+    return errors;
+  };
+
   render() {
     let errorMessage = "";
     if (this.state.wasSubmittedAtLeastOnce) {
       errorMessage = (
-        <div className="error">
+        <div style={{ color: "#dc3545" }}>
           Login Details are incorrect
           <br />
         </div>
       );
     }
+
+    const { errors } = this.state;
 
     return (
       <div>
@@ -83,6 +134,7 @@ export default class Login extends Component {
             onChange={this.handleChange}
           />
           <br />
+          {errors.orderEmail && <div style={{ color: "#dc3545" }}>{errors.orderEmail}</div>}
 
           <input
             type="password"
@@ -113,44 +165,48 @@ export default class Login extends Component {
           </div>
         </form>
 
-        <div className="guest-details">
+        <div className="profileform">
           <h2>Guest Details</h2>
           <form onSubmit={this.handleProfileSubmit}>
             <div>
-              <label>Name: </label>
               <input
                 type="text"
                 name="orderName"
                 value={this.state.orderName}
                 onChange={this.handleChange}
+                placeholder="Please enter name..."
               />
+              {errors.orderName && <div style={{ color: "#dc3545" }}>{errors.orderName}</div>}
             </div>
             <div>
-              <label>Email: </label>
               <input
                 type="email"
                 name="orderEmail"
                 value={this.state.orderEmail}
                 onChange={this.handleChange}
+                placeholder="Please enter email..."
               />
+              {errors.orderEmail && <div style={{ color: "#dc3545" }}>{errors.orderEmail}</div>}
             </div>
             <div>
-              <label>Address: </label>
               <input
                 type="text"
                 name="address"
                 value={this.state.address}
                 onChange={this.handleChange}
+                placeholder="Please enter address..."
               />
+              {errors.address && <div style={{ color: "#dc3545" }}>{errors.address}</div>}
             </div>
             <div>
-              <label>Phone: </label>
               <input
                 type="text"
                 name="phone"
                 value={this.state.phone}
                 onChange={this.handleChange}
+                placeholder="Please enter phone number..."
               />
+              {errors.phone && <div style={{ color: "#dc3545" }}>{errors.phone}</div>}
             </div>
             <button type="submit">Save</button>
           </form>
