@@ -41,11 +41,13 @@ export default class DisplayAllCars extends Component {
           {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? (
             <div className="add-new-car">
               <Link className="blue-button" to={"/AddCar"}>
-                Add <i class='fas fa-tshirt'></i>
+                Add <i class="fas fa-tshirt"></i>
               </Link>
             </div>
           ) : null}
-          <h2 style={{ textAlign: "center" }}>COLLECTION</h2>
+          <div className="h2">
+            <h2>COLLECTION</h2>
+          </div>
           <ShirtGrid cars={this.state.cars} />
           <br />
           <br />

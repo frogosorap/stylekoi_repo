@@ -1,0 +1,15 @@
+$font-family_1: "Inter", sans-serif;
+
+@import "https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap";
+body {
+	margin: 0;
+	font-family: $font-family_1;
+	font-weight: 700;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	height: 100%;
+}
+html {
+	height: 100%;
+}

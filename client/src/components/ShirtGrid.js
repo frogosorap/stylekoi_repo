@@ -105,7 +105,7 @@ class ShirtGrid extends Component {
           </div>
 
           {/* Filter - Colour */}
-          <div className="">
+          <div className="three-filter">
             <select id="colourFilter" onChange={this.handleColourFilterChange} className="main-dropdown">
               <option value="">Colour</option>
               <option value="black">Black</option>

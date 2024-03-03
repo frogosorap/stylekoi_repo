@@ -1,0 +1,278 @@
+/* Responsive Queries */
+/* Medium screens */
+/* Smaller screens */
+/* .parallax_header h1 {
+        font-size: 2.5em;
+    } */
+/* Even smaller screens */
+/* Mobile screens */
+/* Responsive product details container */
+/* Responsive items grid */
+/* Responsive items grid for 3 products per row */
+/* Responsive items grid for 2 products per row */
+/* Responsive items grid for 1 product per row */
+/* Responsive footer styles */
+/* Responsive footer styles for smaller screens */
+/* Responsive styles for buy item section */
+/* Responsive styles for navbar */
+/* Responsive styles for midnav */
+/* Responsive styles for product fabric */
+/* Responsive Table Styles */
+@media only screen and (max-width: 1029px) {
+    .itemsRow {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .women_section {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .parallax_header {
+        h1 {
+            font-size: 3em;
+        }
+    }
+}
+
+@media only screen and (max-width: 850px) {
+    .itemsRow {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .women_section {
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .carPhotos {
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .details {
+        text-align: center;
+    }
+
+    .green-button {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .red-button {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .filter-container {
+        display: flex;
+        flex-direction: column;
+
+        >div {
+            display: flex;
+            flex-direction: column;
+            padding-top: 10px;
+        }
+
+        >.three-filter {
+            display: flex;
+            flex-direction: row;
+            margin: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .filter-container {
+        >.three-filter {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+        }
+    }
+}
+
+@media only screen and (max-width: 540px) {
+    .itemsRow {
+        display: block;
+        margin: 0 30px;
+    }
+
+    .women_section {
+        display: block;
+        margin: 0 30px;
+    }
+
+    .parallax_header {
+        h1 {
+            font-size: 2em;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .product-details-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-image {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .product-info {
+        margin: 0 20px;
+        width: 100%;
+    }
+}
+
+@media (min-width: 768px) {
+    .itemsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767px) {
+    .itemsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 376px) and (max-width: 575px) {
+    .itemsGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 375px) {
+    .itemsGrid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 800px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+
+        .footer-col {
+            width: 80%;
+        }
+    }
+}
+
+@media screen and (max-width: 380px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+
+        .footer-col {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .buy-item {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+
+        >div {
+            width: 100%;
+            padding: 15px 0;
+        }
+
+        >button {
+            width: 100%;
+            padding: 15px 0;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        >div {
+            padding: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .midnav {
+        display: flex;
+        flex-direction: column;
+
+        >a {
+            padding: 5px;
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .product-fabric {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .user-table {
+        width: 100%;
+        overflow-x: auto;
+        display: block;
+
+        thead {
+            display: block;
+
+            tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+        }
+
+        tbody {
+            display: block;
+        }
+
+        th {
+            display: block;
+        }
+
+        td {
+            display: block;
+            border: none;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 20%;
+            text-align: left;
+
+            &:before {
+                position: absolute;
+                top: 6px;
+                left: 6px;
+                width: 45%;
+                padding-right: 10px;
+                white-space: nowrap;
+                content: attr(data-label);
+            }
+        }
+
+        tr {
+            display: block;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+    }
+}

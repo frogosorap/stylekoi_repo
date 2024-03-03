@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-import "./css/App.css";
-import "./css/responsive.css";
+// import "./css/App.css";
+// import "./css/responsive.css";
+
+import "./css/final.css"
+import "./css/final-res.css"
 
 import Register from "./components/Register";
 import ResetDatabase from "./components/ResetDatabase";
