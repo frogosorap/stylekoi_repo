@@ -84,7 +84,7 @@ export default class OrderTable extends Component {
             <option value="price_asc">Price Low-High</option>
             <option value="price_desc">Price High-Low</option>
         </select>
-        <select id="priceFilter" onChange={this.handlePriceFilter}>
+        <select id="filter" onChange={this.handlePriceFilter}>
             <option value="">Filter By Price</option>
             <option value="below_20">0-20</option>
             <option value="below_40">20-40</option>

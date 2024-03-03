@@ -165,7 +165,7 @@ export default class Login extends Component {
           </div>
         </form>
 
-        <div className="profileform">
+        <div className="forms">
           <h2>Guest Details</h2>
           <form onSubmit={this.handleProfileSubmit}>
             <div>
