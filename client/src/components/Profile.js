@@ -117,7 +117,7 @@ render() {
                 <p>To be added soon...</p>
                 <br />
                 <LinkInClass
-                    value="Logout"
+                    value="Log out"
                     className="red-button"
                     onClick={this.handleLogout}
                 />

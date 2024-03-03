@@ -76,7 +76,7 @@ export default class App extends Component {
         <div className="banner">
           <p className="marquee">
             <span>
-            <i class="fa fa-truck navicon"></i>&emsp;Free shipping on orders over €30 &emsp;||&emsp; <i class="fas fa-tags navicon"></i>&emsp;Sale: 50% off - Only Today!! &emsp;||&emsp; <i class="	fab fa-cc-paypal navicon"></i>&emsp;Shop in confidence with PayPal
+            <i class="fa fa-truck navicon"></i>&emsp;Free shipping on orders over €30 &emsp;||&emsp; <i class="fas fa-tags navicon"></i>&emsp;Sale: 50% off - Only Today! &emsp;||&emsp; <i class="	fab fa-cc-paypal navicon"></i>&emsp;Shop in confidence with PayPal
             </span>
           </p>
         </div>
