@@ -77,11 +77,9 @@ class CarDetailsPage extends Component {
 
     return (
       <div>
-        <BrowserRouter>
           <Link to="/DisplayAllCars" className="back-button">
-            Back
+          <i class='fas fa-long-arrow-alt-left'></i>
           </Link>
-        </BrowserRouter>
         <div className="product-details-container">
           <div className="product-image">
             {imageUrls.length > 0 && (

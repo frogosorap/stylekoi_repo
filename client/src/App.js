@@ -102,8 +102,8 @@ export default class App extends Component {
             {this.isGuest() && <Link to="/Login"><i class='far fa-user iconstyle'></i></Link>}
             {this.isNormalUserOrAdmin() && <Link to="/Profile"><i class='fas fa-user iconstyle'></i></Link>}
             {this.isNormalUserOrGuest() && <Link to="/Basket"><i class='fas fa-shopping-cart iconstyle'></i></Link>}
-            {this.isAdmin() && <Link to="/DisplayAllSales">SALES</Link>}
-            {this.isAdmin() && <Link to="/DisplayAllUsers">USERS</Link>}
+            {this.isAdmin() && <Link to="/DisplayAllSales"><i class='fas fa-chart-line iconstyle'></i></Link>}
+            {this.isAdmin() && <Link to="/DisplayAllUsers"><i class='fas fa-users-cog iconstyle'></i></Link>}
           </div>
         </div>
 

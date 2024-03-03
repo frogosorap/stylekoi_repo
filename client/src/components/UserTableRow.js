@@ -29,7 +29,7 @@ export default class UserTableRow extends Component
                     className="red-button"
                     to={"/DeleteUser/" + this.props.user._id}
                   >
-                    X
+                    <i class='fas fa-trash-alt'></i>
                   </Link>
                 ) : null}
                 </td>

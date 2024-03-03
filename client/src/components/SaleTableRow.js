@@ -19,7 +19,7 @@ export default class SaleTableRow extends Component
                     className="red-button"
                     to={"/DeleteSale/" + this.props.sale._id}
                   >
-                    X
+                    <i class='fas fa-trash-alt'></i>
                   </Link>
                 ) : null}
                 </td>

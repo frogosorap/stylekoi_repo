@@ -136,7 +136,7 @@ class CarTableRow extends Component {
                 className="green-button"
                 to={"/EditCar/" + this.props.car._id}
               >
-                Edit
+                <i class="fas fa-edit"></i>
               </Link>
             ) : null}
 
@@ -145,7 +145,7 @@ class CarTableRow extends Component {
                 className="red-button"
                 to={"/DeleteCar/" + this.props.car._id}
               >
-                Delete
+                <i class='fas fa-trash-alt'></i>
               </Link>
             ) : null}
 
