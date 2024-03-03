@@ -16,7 +16,7 @@ export default class Profile extends Component {
         this.state = {
             sales: [],
             isLoggedIn: true,
-            orderName: localStorage.getItem("orderName") || "",
+            orderName: localStorage.getItem("name") || "",
             orderEmail: localStorage.getItem("orderEmail") || "",
             address: localStorage.getItem("address") || "",
             phone: localStorage.getItem("phone") || "",
@@ -44,7 +44,7 @@ export default class Profile extends Component {
 
         const profilePhotoUrl = localStorage.getItem("profilePhoto");
         const name = localStorage.getItem("name");
-        const orderName = localStorage.getItem("orderName") || "";
+        const orderName = localStorage.getItem("name") || "";
         const orderEmail = localStorage.getItem("orderEmail") || "";
         const address = localStorage.getItem("address") || "";
         const phone = localStorage.getItem("phone") || "";
