@@ -3,9 +3,7 @@ import { Redirect, Link } from "react-router-dom"
 import axios from "axios"
 
 import LinkInClass from "../components/LinkInClass"
-
 import { SERVER_HOST } from "../config/global_constants"
-
 
 export default class Register extends Component {
     constructor(props) {
@@ -18,23 +16,33 @@ export default class Register extends Component {
             confirmPassword: "",
             selectedFile: null,
             isRegistered: false,
-            wasSubmittedAtLeastOnce: false
+            wasSubmittedAtLeastOnce: false,
+            errors: {
+                name: "",
+                email: "",
+                password: "",
+                confirmPassword: ""
+            }
         }
     }
-
 
     handleChange = (e) => {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-
     handleFileChange = (e) => {
         this.setState({ selectedFile: e.target.files[0] })
     }
 
-
     handleSubmit = (e) => {
         e.preventDefault()
+
+        // Perform validation
+        const errors = this.validateForm();
+        if (Object.keys(errors).some((key) => errors[key])) {
+            this.setState({ errors });
+            return;
+        }
 
         let formData = new FormData()
         if (this.state.selectedFile) {
@@ -54,12 +62,46 @@ export default class Register extends Component {
             })
     }
 
+    validateForm = () => {
+        const { name, email, password, confirmPassword } = this.state;
+        const errors = {
+            name: "",
+            email: "",
+            password: "",
+            confirmPassword: ""
+        };
+
+        // Name validation
+        if (name.length <= 1) {
+            errors.name = "Name must be longer than 1 character";
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            errors.email = "Email must follow the email format";
+        }
+
+        // Password validation
+        if (password.length <= 5) {
+            errors.password = "Password must be longer than 5 characters";
+        }
+
+        // Confirm Password validation
+        if (password !== confirmPassword) {
+            errors.confirmPassword = "Confirm Password must match Password";
+        }
+
+        return errors;
+    };
 
     render() {
         let errorMessage = "";
         if (this.state.wasSubmittedAtLeastOnce) {
             errorMessage = <div className="error">Error: All fields must be filled in<br /></div>;
         }
+
+        const { errors } = this.state;
 
         return (
             <form className="forms" noValidate={true} id="loginOrRegistrationForm">
@@ -77,8 +119,9 @@ export default class Register extends Component {
                     autoComplete="name"
                     value={this.state.name}
                     onChange={this.handleChange}
-                    ref={(input) => { this.inputToFocus = input }}
-                /><br />
+                />
+                {errors.name && <div className="error red">{errors.name}</div>}
+                <br />
 
                 <input
                     name="email"
@@ -87,32 +130,38 @@ export default class Register extends Component {
                     autoComplete="email"
                     value={this.state.email}
                     onChange={this.handleChange}
-                /><br />
+                />
+                {errors.email && <div className="error red">{errors.email}</div>}
+                <br />
 
                 <input
                     name="password"
                     type="password"
                     placeholder="Password"
-                    autoComplete="password"
-                    title="Password must be at least ten-digits long and contains at least one lowercase letter, one uppercase letter, one digit and one of the following characters (£!#€$%^&*)"
+                    autoComplete="new-password"
                     value={this.state.password}
                     onChange={this.handleChange}
-                /><br />
+                />
+                {errors.password && <div className="error red">{errors.password}</div>}
+                <br />
 
                 <input
                     name="confirmPassword"
                     type="password"
                     placeholder="Confirm password"
-                    autoComplete="confirmPassword"
+                    autoComplete="new-password"
                     value={this.state.confirmPassword}
                     onChange={this.handleChange}
-                /><br />
+                />
+                {errors.confirmPassword && <div className="error red">{errors.confirmPassword}</div>}
+                <br />
 
                 <input
                     name="profilePhoto"
                     type="file"
                     onChange={this.handleFileChange}
-                /><br /><br />
+                />
+                <br /><br />
 
                 <LinkInClass value="Register New User" className="green-button" onClick={this.handleSubmit} />
                 <Link className="red-button" to={"/DisplayAllCars"}>Cancel</Link>
