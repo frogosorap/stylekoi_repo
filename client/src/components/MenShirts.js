@@ -38,7 +38,7 @@ export default class MenShirts extends Component {
     return (
 
         <div className="table-container">
-          <h2 style={{ textAlign: "center" }}>MEN'S COLLECTION</h2>
+          <h2 style={{ textAlign: "center" }}>mEN'S COLLECTION</h2>
           <ShirtGrid cars={this.state.cars} />
 
           {/* {localStorage.accessLevel >= ACCESS_LEVEL_ADMIN ? (
