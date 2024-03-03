@@ -70,13 +70,6 @@ export default class SaleTable extends Component {
             <option value="price_asc">Price Low-High</option>
             <option value="price_desc">Price High-Low</option>
         </select>
-        {/* <div className="filter-options">
-          <select id="filter" onChange={this.handleFilter}>
-            <option value="">View All</option>
-            <option value="1">Customers</option>
-            <option value="2">Admin</option>
-          </select>
-        </div> */}
         <div className="search-bar">
             <input
             type="text"

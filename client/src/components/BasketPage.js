@@ -74,31 +74,36 @@ class BasketPage extends Component {
                   <tr key={index} className="basket-item">
                     <td>
                       <img src={item.imageUrl} alt={item.name} />
+                      <p>{item.name}</p>
                     </td>
                     <td>€{item.price}</td>
                     <td>€{(item.price * item.quantity).toFixed(2)}</td>
                     <td>
                       <button
+                      className="quantity-button"
                         onClick={() => this.handleDecreaseQuantity(item.id)}
                       >
                         -
                       </button>
                       {item.quantity}
                       <button
+                      className="quantity-button"
                         onClick={() => this.handleIncreaseQuantity(item.id)}
                       >
                         +
                       </button>
                     </td>
                     <td>
-                      <button onClick={() => this.handleDelete(index)}>X</button>
+                      <button onClick={() => this.handleDelete(index)} className="delete-button">X</button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
             <div className="total-price">Total Price: €{totalPrice.toFixed(2)}</div>
+            <div className="paypal-basket">
             <BuyBasket items={basketItems} totalPrice={totalPrice} />
+            </div>
           </React.Fragment>
         )}
       </div>

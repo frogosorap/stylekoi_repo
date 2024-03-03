@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
-import "./css/App.css";
 
-import "./css/raph.css";
-import "./css/elga.css";
-import "./css/mila.css";
+import "./css/App.css";
+import "./css/responsive.css";
 
 import Register from "./components/Register";
 import ResetDatabase from "./components/ResetDatabase";
