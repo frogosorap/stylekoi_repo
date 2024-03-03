@@ -60,7 +60,7 @@ render() {
     }
 
     return (
-        <div>
+        <div className="profile-container">
             <br />
             <center>
                 <img
