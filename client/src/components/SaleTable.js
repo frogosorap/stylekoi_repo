@@ -88,7 +88,9 @@ export default class SaleTable extends Component {
         <table className="sale-table">
           <thead>
             <tr>
+              <th>Name</th>
               <th>PayPal ID</th>
+              <th>Email</th>
               <th>Shirt ID</th>
               <th>Price</th>
               <th>Delete</th>
