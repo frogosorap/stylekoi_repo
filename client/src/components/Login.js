@@ -5,8 +5,6 @@ import axios from "axios";
 import LinkInClass from "../components/LinkInClass";
 import { SERVER_HOST } from "../config/global_constants";
 
-// import Register from "../components/Register"
-
 export default class Login extends Component {
   constructor(props) {
     super(props);
@@ -16,6 +14,11 @@ export default class Login extends Component {
       password: "",
       isLoggedIn: false,
       wasSubmittedAtLeastOnce: false,
+      name: localStorage.getItem("name") || "",
+      orderName: localStorage.getItem("orderName") || "",
+      orderEmail: localStorage.getItem("orderEmail") || "",
+      address: localStorage.getItem("address") || "",
+      phone: localStorage.getItem("phone") || ""
     };
   }
 
@@ -40,6 +43,15 @@ export default class Login extends Component {
       .catch((err) => {
         this.setState({ wasSubmittedAtLeastOnce: true });
       });
+  };
+
+  handleProfileSubmit = (e) => {
+    e.preventDefault();
+    localStorage.setItem("orderName", this.state.orderName);
+    localStorage.setItem("orderEmail", this.state.orderEmail);
+    localStorage.setItem("address", this.state.address);
+    localStorage.setItem("phone", this.state.phone);
+    alert("Profile Updated Successfully");
   };
 
   render() {
@@ -100,6 +112,49 @@ export default class Login extends Component {
             </Link>
           </div>
         </form>
+
+        <div className="guest-details">
+          <h2>Guest Details</h2>
+          <form onSubmit={this.handleProfileSubmit}>
+            <div>
+              <label>Name: </label>
+              <input
+                type="text"
+                name="orderName"
+                value={this.state.orderName}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <label>Email: </label>
+              <input
+                type="email"
+                name="orderEmail"
+                value={this.state.orderEmail}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <label>Address: </label>
+              <input
+                type="text"
+                name="address"
+                value={this.state.address}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <label>Phone: </label>
+              <input
+                type="text"
+                name="phone"
+                value={this.state.phone}
+                onChange={this.handleChange}
+              />
+            </div>
+            <button type="submit">Save</button>
+          </form>
+        </div>
 
         <br />
       </div>
